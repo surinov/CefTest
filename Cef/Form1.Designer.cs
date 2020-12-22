@@ -42,11 +42,10 @@ namespace CefTest
             // chromiumWebBrowser1
             // 
             this.chromiumWebBrowser1.ActivateBrowserOnCreation = false;
-            this.chromiumWebBrowser1.Location = new System.Drawing.Point(1030, 514);
+            this.chromiumWebBrowser1.Location = new System.Drawing.Point(3, 3);
             this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
-            this.chromiumWebBrowser1.Size = new System.Drawing.Size(126, 77);
+            this.chromiumWebBrowser1.Size = new System.Drawing.Size(1000, 600);
             this.chromiumWebBrowser1.TabIndex = 0;
-            this.chromiumWebBrowser1.Visible = false;
             // 
             // button1
             // 
@@ -104,7 +103,7 @@ namespace CefTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 647);
+            this.ClientSize = new System.Drawing.Size(1168, 623);
             this.Controls.Add(this.navigateBox);
             this.Controls.Add(this.addressBox);
             this.Controls.Add(this.adressButton);
