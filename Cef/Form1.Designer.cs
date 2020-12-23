@@ -37,6 +37,9 @@ namespace CefTest
             this.adressButton = new System.Windows.Forms.Button();
             this.addressBox = new System.Windows.Forms.TextBox();
             this.navigateBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // chromiumWebBrowser1
@@ -46,6 +49,7 @@ namespace CefTest
             this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
             this.chromiumWebBrowser1.Size = new System.Drawing.Size(1000, 600);
             this.chromiumWebBrowser1.TabIndex = 0;
+            this.chromiumWebBrowser1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.chromiumWebBrowser1_KeyPress);
             // 
             // button1
             // 
@@ -99,11 +103,43 @@ namespace CefTest
             this.navigateBox.Size = new System.Drawing.Size(126, 20);
             this.navigateBox.TabIndex = 6;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(1042, 454);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 18);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Step";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1054, 409);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 623);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.navigateBox);
             this.Controls.Add(this.addressBox);
             this.Controls.Add(this.adressButton);
@@ -115,7 +151,8 @@ namespace CefTest
             this.Name = "Form1";
             this.Text = "CefTest";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,6 +167,9 @@ namespace CefTest
         private System.Windows.Forms.Button adressButton;
         private System.Windows.Forms.TextBox addressBox;
         private System.Windows.Forms.TextBox navigateBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
