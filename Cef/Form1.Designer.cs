@@ -40,6 +40,8 @@ namespace CefTest
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.logBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // chromiumWebBrowser1
@@ -49,11 +51,10 @@ namespace CefTest
             this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
             this.chromiumWebBrowser1.Size = new System.Drawing.Size(1000, 600);
             this.chromiumWebBrowser1.TabIndex = 0;
-            this.chromiumWebBrowser1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.chromiumWebBrowser1_KeyPress);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1054, 349);
+            this.button1.Location = new System.Drawing.Point(1057, 367);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -63,7 +64,7 @@ namespace CefTest
             // 
             // passwordBox
             // 
-            this.passwordBox.Location = new System.Drawing.Point(1042, 323);
+            this.passwordBox.Location = new System.Drawing.Point(1045, 341);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(100, 20);
             this.passwordBox.TabIndex = 2;
@@ -72,7 +73,7 @@ namespace CefTest
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1039, 307);
+            this.label1.Location = new System.Drawing.Point(1042, 325);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 3;
@@ -115,7 +116,7 @@ namespace CefTest
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1054, 409);
+            this.button2.Location = new System.Drawing.Point(1057, 409);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -132,11 +133,30 @@ namespace CefTest
             this.label3.TabIndex = 9;
             this.label3.Text = "label3";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1042, 286);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Login";
+            // 
+            // logBox
+            // 
+            this.logBox.Location = new System.Drawing.Point(1045, 302);
+            this.logBox.Name = "logBox";
+            this.logBox.Size = new System.Drawing.Size(100, 20);
+            this.logBox.TabIndex = 11;
+            this.logBox.Text = "admin";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1168, 623);
+            this.Controls.Add(this.logBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
@@ -151,8 +171,6 @@ namespace CefTest
             this.Name = "Form1";
             this.Text = "CefTest";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +188,8 @@ namespace CefTest
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox logBox;
     }
 }
 

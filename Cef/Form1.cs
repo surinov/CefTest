@@ -19,12 +19,9 @@ namespace CefTest
         protected override void OnLoad(EventArgs e)
         {
             chromiumWebBrowser1.Load(addressBox.Text);
+            GetCursorPos();
         }
 
-        public void RunScript(string script)
-        {
-            chromiumWebBrowser1.ExecuteScriptAsyncWhenPageLoaded(script);
-        }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Cef.Shutdown();
@@ -32,48 +29,35 @@ namespace CefTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MakeStepAsync();
+            MakeStep();
         }
 
-        async void MakeStepAsync()
+        public async void MakeStep()
         {
-            await Task.Run(() => MakeStep());
-        }
-        public void MakeStep()
-        { 
-            switch (_step)
+            var steps = new Steps(0, chromiumWebBrowser1, label2, label3, logBox.Text, passwordBox.Text);
+            int i = 0;
+            while (_step < 5)
             {
-                case 0:
-                    //label2.Text = $@"Step {_step} done";
-                    RunScript($@"
-            document.getElementById('pc-login-password').value = '{passwordBox.Text}';
-            document.getElementById('pc-login-btn').click();");
-                    _step = 1;
-                    break;
-                case 1:
-                    //label2.Text = $@"Step {_step} done";
-                    RunScript($@"document.getElementById('advanced').click();");
-                    _step = 2;
-                    break;
-                case 2:
-                    //label2.Text = $@"Step {_step} done";
-                    MouseClick(50, 300);
-                    _step = 3;
-                    break;
-                case 3:
-                    //label2.Text = $@"Step {_step} done";
-                    MouseClick(50, 170);
-                    _step = 4;
-                    break;
-                case 4:
-                    //label2.Text = $@"Step {_step} done";
-                    string stript = (@"
-            document.getElementById('ssid').value = 'Hello';
-                    ");
-                    RunScript(stript);
-                    _step = 5;
-                    break;
+                await Task.Delay(1000);
+                steps.MakeStep(i);
+                i++;
             }
+        }
+
+        public async void GetCursorPos()
+        {
+            try
+            {
+                while (true)
+                {
+                    var point = label3.PointToClient(Cursor.Position);
+                    var cX = point.X;
+                    var cY = point.Y;
+                    await Task.Delay(10);
+                    label3.Text = @"X = " + cX + ", Y = " + cY;
+                }
+            }
+            catch { }
         }
 
         private void adressButton_Click(object sender, EventArgs e)
@@ -83,41 +67,12 @@ namespace CefTest
 
         private void button2_Click(object sender, EventArgs e)
         {
-            switch (_click)
+            chromiumWebBrowser1.Focus();
+            for (int i = 0; i < 9; i++)
             {
-                case 0:
-                    MouseClick(50, 300);
-                    _click = 1;
-                    break;
-                case 1:
-                    MouseClick(50,170);
-                    _click = 0;
-                    break;
+                SendKeys.Send("{BS}");
+                System.Threading.Thread.Sleep(10);
             }
-        }
-
-        public void MouseClick(int x, int y)
-        {
-            chromiumWebBrowser1.GetBrowser().GetHost().SendMouseClickEvent(x, y, MouseButtonType.Left, false, 1, CefEventFlags.None);
-            System.Threading.Thread.Sleep(10);
-            chromiumWebBrowser1.GetBrowser().GetHost().SendMouseClickEvent(x, y, MouseButtonType.Left, true, 1, CefEventFlags.None);
-        }
-
-        private void Form1_MouseMove(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void chromiumWebBrowser1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Point point = label3.PointToClient(Cursor.Position);
-            MessageBox.Show(point.ToString());
-        }
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            Point point = label3.PointToClient(Cursor.Position);
-            MessageBox.Show(point.ToString());
         }
     }
 }
