@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
@@ -57,11 +53,12 @@ namespace CefTest
                     _stepLabel.Text = $@"Step {_step} done";
                     MouseClick(730, 220);
                     _browser.Focus();
-                    for (int i = 0; i < 9; i++)
-                    {
-                        SendKeys.Send("{BS}");
-                        System.Threading.Thread.Sleep(10);
-                    }
+                    KeyInput("Hello");
+                    // for (int i = 0; i < 9; i++)
+                    // {
+                    //     SendKeys.Send("{BS}");
+                    //     System.Threading.Thread.Sleep(10);
+                    // }
                     _step = 5;
                     break;
             }
@@ -71,6 +68,18 @@ namespace CefTest
             _browser.GetBrowser().GetHost().SendMouseClickEvent(x, y, MouseButtonType.Left, false, 1, CefEventFlags.None);
             System.Threading.Thread.Sleep(10);
             _browser.GetBrowser().GetHost().SendMouseClickEvent(x, y, MouseButtonType.Left, true, 1, CefEventFlags.None);
+        }
+
+        public void KeyInput(string keys)
+        {
+            char[] input = keys.ToCharArray();
+            var i = 0;
+            while (i<input.Length)
+            {
+                System.Threading.Thread.Sleep(100);
+                SendKeys.Send($"{input[i].ToString()}");
+                i++;
+            }
         }
         public void RunScript(string script)
         {
