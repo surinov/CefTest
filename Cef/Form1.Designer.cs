@@ -71,7 +71,7 @@ namespace CefTest
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.Size = new System.Drawing.Size(132, 22);
             this.passwordBox.TabIndex = 2;
-            this.passwordBox.Text = "windows10";
+            this.passwordBox.Text = "77290199";
             // 
             // label1
             // 
@@ -101,7 +101,7 @@ namespace CefTest
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(167, 22);
             this.addressBox.TabIndex = 5;
-            this.addressBox.Text = "http://192.168.0.1/";
+            this.addressBox.Text = "http://192.168.1.1/";
             // 
             // navigateBox
             // 

@@ -29,9 +29,22 @@ namespace CefTest
             {
                 case 0:
                     _stepLabel.Text = $@"Step {step} done";
+                    MouseClick(450, 310);
+                    _browser.Focus();
+                    string s = "admin";
+                    char[] a = s.ToCharArray();
+                    for (int i = 0; i < a.Length; i++)
+                    {
+                        SendKeys.Send($"{a[i]}");
+                        System.Threading.Thread.Sleep(10);
+                    }
+                    //         RunScript($@"
+                    // document.getElementById('userName').value = '{_login}';");
+                    //         System.Threading.Thread.Sleep(10);
                     RunScript($@"
             document.getElementById('pc-login-password').value = '{_password}';
             document.getElementById('pc-login-btn').click();");
+                    
                     _step = 1;
                     break;
                 case 1:
