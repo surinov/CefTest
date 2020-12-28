@@ -32,12 +32,14 @@ namespace CefTest
 
         public async void MakeStep()
         {
-            var steps = new Steps(0, chromiumWebBrowser1, label2, label3, logBox.Text, passwordBox.Text);
+            var steps = new Steps(0, chromiumWebBrowser1, label2, label3, loginDefBox.Text, passwordDefBox.Text,loginBox.Text,passwordBox.Text);
             int i = 0;
-            while (_step < 5)
+            while (i < 10)
             {
-                await Task.Delay(1000);
+                chromiumWebBrowser1.Focus();
                 steps.MakeStep(i);
+                //await Task.Run(() => steps.MakeStep(i));
+                await Task.Delay(1000);
                 i++;
             }
         }
@@ -66,11 +68,8 @@ namespace CefTest
         private void button2_Click(object sender, EventArgs e)
         {
             chromiumWebBrowser1.Focus();
-            for (int i = 0; i < 9; i++)
-            {
-                SendKeys.Send("{BS}");
-                System.Threading.Thread.Sleep(10);
-            }
+            chromiumWebBrowser1.SendMouseWheelEvent(5,5,0,-110, CefEventFlags.LeftMouseButton);
         }
+
     }
 }
