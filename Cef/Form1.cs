@@ -32,16 +32,26 @@ namespace CefTest
 
         public async void MakeStep()
         {
-            var steps = new Steps(0, chromiumWebBrowser1, label2, label3, loginDefBox.Text, passwordDefBox.Text,loginBox.Text,passwordBox.Text);
+            var steps = new Steps(0, chromiumWebBrowser1, loginDefBox.Text, passwordDefBox.Text,loginBox.Text,passwordBox.Text);
             int i = 0;
+            int l = 0;
+            while (l < 3)
+            {
+                chromiumWebBrowser1.Focus();
+                steps.MakeLogIn(l);
+                await Task.Delay(1000);
+                l++;
+            }
+            label2.Text += "\nLogin done.";
             while (i < 10)
             {
                 chromiumWebBrowser1.Focus();
-                steps.MakeStep(i);
-                //await Task.Run(() => steps.MakeStep(i));
+                steps.MakeStepWifi(i);
                 await Task.Delay(1000);
                 i++;
             }
+
+            label2.Text += "\nWiFi done.";
         }
 
         public async void GetCursorPos()

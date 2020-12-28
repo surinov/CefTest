@@ -58,12 +58,13 @@ namespace CefTest
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.Location = new System.Drawing.Point(1413, 232);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 1;
-            this.button1.Text = "Log In";
+            this.button1.Text = "Run";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -110,12 +111,12 @@ namespace CefTest
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1389, 559);
+            this.label2.Location = new System.Drawing.Point(1391, 528);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 25);
+            this.label2.Size = new System.Drawing.Size(54, 25);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Step";
+            this.label2.Text = "Log:";
             // 
             // button2
             // 
@@ -164,7 +165,7 @@ namespace CefTest
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(132, 22);
             this.loginBox.TabIndex = 15;
-            this.loginBox.Text = "lte05819-4";
+            this.loginBox.Text = "te05819-4";
             // 
             // label5
             // 
