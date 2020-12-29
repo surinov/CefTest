@@ -35,7 +35,10 @@ namespace CefTest
             if (!TextboxIsNull())
             {
                 try{MakeStep();}
-                catch { }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 
@@ -96,7 +99,10 @@ namespace CefTest
                     label3.Text = @"X: " + cX + ", Y: " + cY;
                 }
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
         }
 
         private void adressButton_Click(object sender, EventArgs e)

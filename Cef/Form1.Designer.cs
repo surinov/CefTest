@@ -30,7 +30,9 @@ namespace CefTest
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+#pragma warning disable CS0618 // Тип или член устарел
             this.chromiumWebBrowser1 = new CefSharp.WinForms.ChromiumWebBrowser();
+#pragma warning restore CS0618 // Тип или член устарел
             this.button1 = new System.Windows.Forms.Button();
             this.passwordDefBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
