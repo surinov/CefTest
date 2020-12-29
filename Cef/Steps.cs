@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
@@ -9,57 +10,98 @@ namespace CefTest
     {
         private int _step;
         private readonly ChromiumWebBrowser _browser;
-        private readonly Label _stepLabel;
-        private readonly Label _posLabel;
         private readonly string _login;
         private readonly string _password;
+        private readonly string _setlogin;
+        private readonly string _setpassword;
 
-        public Steps(int step, ChromiumWebBrowser browser, Label stepLabel, Label posLabel, string login, string password)
+        public Steps(ChromiumWebBrowser browser, string login, string password,string setLogin,string setPassword)
         {
-            _step = step;
+            _step = 0;
             _browser = browser;
-            _stepLabel = stepLabel;
-            _posLabel = posLabel;
             _login = login;
             _password = password;
+            _setlogin = setLogin;
+            _setpassword = setPassword;
         }
-        public void MakeStep(int step)
+
+        public async void MakeLogIn(int step)
         {
             switch (step)
             {
                 case 0:
-                    _stepLabel.Text = $@"Step {step} done";
-                    RunScript($@"
-            document.getElementById('pc-login-password').value = '{_password}';
-            document.getElementById('pc-login-btn').click();");
-                    _step = 1;
+                    await Task.Run(() => MouseClick(450, 310));
+                    await Task.Run(() => KeyInput(_login));
                     break;
                 case 1:
-                    _stepLabel.Text = $@"Step {step} done";
-                    RunScript($@"document.getElementById('advanced').click();");
-                    _step = 2;
+                    await Task.Run(() => MouseClick(450, 350));
+                    await Task.Run(() => KeyInput(_password));
+                    await Task.Run(() => MouseClick(500, 390));
+                    break;
+            }
+        }
+        public async void MakeStepWifi(int step)
+        {
+            _step = step;
+            switch (step)
+            {
+                case 0:
+                    await Task.Run(() => MouseClick(45, 270));
+                    break;
+                case 1:
+                    await Task.Run(() => MouseClick(500, 220));
                     break;
                 case 2:
-                    _stepLabel.Text = $@"Step {step} done";
-                    MouseClick(50, 300);
-                    _step = 3;
+                    await Task.Run(() => DelInput(12));
                     break;
                 case 3:
-                    _stepLabel.Text = $@"Step {step} done";
-                    MouseClick(50, 170);
-                    _step = 4;
+                    await Task.Run(() => KeyInput(_setlogin));
+                    await Task.Run(() => MouseClick(460, 510));
                     break;
                 case 4:
-                    _stepLabel.Text = $@"Step {_step} done";
-                    MouseClick(730, 220);
-                    _browser.Focus();
-                    KeyInput("Hello");
-                    // for (int i = 0; i < 9; i++)
-                    // {
-                    //     SendKeys.Send("{BS}");
-                    //     System.Threading.Thread.Sleep(10);
-                    // }
-                    _step = 5;
+                    await Task.Run(() => MouseClick(50, 320));
+                    break;
+                case 5:
+                    await Task.Run(() => MouseClick(500, 350));
+                    await Task.Run(() => DelInput(12));
+                    await Task.Run(() => KeyInput(_setpassword));
+                    break;
+                case 6:
+                    await Task.Run(() => MouseClick(725, 550));
+                    break;
+                case 7:
+                    await Task.Run(() => MouseClick(500, 540));
+                    break;
+            }
+        }
+
+        public async void MakeStepApn(int step)
+        {
+            _step = step;
+            switch (step)
+            {
+                case 0:
+                    await Task.Run(() => MouseClick(45, 220));
+                    break;
+                case 1:
+                    await Task.Run(() => MouseClick(700, 370));
+                    break;
+                case 2:
+                    await Task.Run(() => MouseClick(460, 220));
+                    await Task.Run(() => KeyInput("unet"));
+                    break;
+                case 3:
+                    await Task.Run(() => MouseClick(460, 297));
+                    await Task.Run(() => KeyInput("unet"));
+                    break;
+                case 4:
+                    await Task.Run(() => MouseClick(400, 372));
+                    break;
+                case 5:
+                    await Task.Run(() => MouseClick(400, 420));
+                    break;
+                case 6:
+                    await Task.Run(() => MouseClick(530, 430));
                     break;
             }
         }
@@ -72,18 +114,20 @@ namespace CefTest
 
         public void KeyInput(string keys)
         {
-            char[] input = keys.ToCharArray();
-            var i = 0;
-            while (i<input.Length)
+            var a = keys.ToCharArray();
+            foreach (var t in a)
             {
-                System.Threading.Thread.Sleep(100);
-                SendKeys.Send($"{input[i].ToString()}");
-                i++;
+                SendKeys.SendWait($"{t}");
+                SendKeys.Flush();
             }
         }
-        public void RunScript(string script)
+        public void DelInput(int count)
         {
-            _browser.ExecuteScriptAsyncWhenPageLoaded(script);
+            for (var i = 0; i<count;i++)
+            {
+                SendKeys.SendWait("{BS}");
+                SendKeys.Flush();
+            }
         }
     }
 }

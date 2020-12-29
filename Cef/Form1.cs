@@ -7,16 +7,15 @@ namespace CefTest
 {
     public partial class Form1 : Form
     {
-        private int _step = 0;
-        private int _click = 0;
         public Form1()
         {
             InitializeComponent();
+            comboBoxUrls.SelectedIndex = 2;
         }
 
         protected override void OnLoad(EventArgs e)
         {
-            chromiumWebBrowser1.Load(addressBox.Text);
+            chromiumWebBrowser1.Load(comboBoxUrls.SelectedItem.ToString());
             GetCursorPos();
         }
 
@@ -25,20 +24,62 @@ namespace CefTest
             Cef.Shutdown();
         }
 
+        private bool TextboxIsNull()
+        {
+            return loginDefBox.Text == string.Empty || loginBox.Text == string.Empty || passwordDefBox.Text == string.Empty || 
+                   passwordBox.Text == string.Empty;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            MakeStep();
+            if (!TextboxIsNull())
+            {
+                try{MakeStep();}
+                catch { }
+            }
         }
 
         public async void MakeStep()
         {
-            var steps = new Steps(0, chromiumWebBrowser1, label2, label3, logBox.Text, passwordBox.Text);
-            int i = 0;
-            while (_step < 5)
+            label2.Text = "Log: ";
+            var steps = new Steps(chromiumWebBrowser1, loginDefBox.Text, passwordDefBox.Text,loginBox.Text,passwordBox.Text);
+            if (checkAuth.Checked)
             {
-                await Task.Delay(1000);
-                steps.MakeStep(i);
-                i++;
+                var l = 0;
+                while (l < 3)
+                {
+                    chromiumWebBrowser1.Focus();
+                    steps.MakeLogIn(l);
+                    await Task.Delay(1000);
+                    l++;
+                }
+                label2.Text += "\n- Login Есть.";
+            }
+
+            if (checkWifi.Checked)
+            {
+                var i = 0;
+                while (i < 10)
+                {
+                    chromiumWebBrowser1.Focus();
+                    steps.MakeStepWifi(i);
+                    await Task.Delay(1000);
+                    i++;
+                }
+                label2.Text += "\n- WiFi Есть.";
+            }
+
+            if (checkAPN.Checked)
+            {
+                var k = 0;
+                while (k < 7)
+                {
+                    chromiumWebBrowser1.Focus();
+                    steps.MakeStepApn(k);
+                    await Task.Delay(1000);
+                    k++;
+                }
+                label2.Text += "\n- APN Есть.";
             }
         }
 
@@ -48,11 +89,11 @@ namespace CefTest
             {
                 while (true)
                 {
-                    var point = label3.PointToClient(Cursor.Position);
+                    var point = label7.PointToClient(Cursor.Position);
                     var cX = point.X;
                     var cY = point.Y;
                     await Task.Delay(10);
-                    label3.Text = @"X = " + cX + ", Y = " + cY;
+                    label3.Text = @"X: " + cX + ", Y: " + cY;
                 }
             }
             catch { }
@@ -60,17 +101,13 @@ namespace CefTest
 
         private void adressButton_Click(object sender, EventArgs e)
         {
-            chromiumWebBrowser1.Load(addressBox.Text);
+            chromiumWebBrowser1.Load(comboBoxUrls.SelectedItem.ToString());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            chromiumWebBrowser1.Focus();
-            for (int i = 0; i < 9; i++)
-            {
-                SendKeys.Send("{BS}");
-                System.Threading.Thread.Sleep(10);
-            }
+            string selectedState = comboBoxUrls.SelectedItem.ToString();
+            MessageBox.Show(selectedState);
         }
     }
 }
