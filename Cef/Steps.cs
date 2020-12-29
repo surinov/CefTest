@@ -15,9 +15,9 @@ namespace CefTest
         private readonly string _setlogin;
         private readonly string _setpassword;
 
-        public Steps(int step, ChromiumWebBrowser browser, string login, string password,string setLogin,string setPassword)
+        public Steps(ChromiumWebBrowser browser, string login, string password,string setLogin,string setPassword)
         {
-            _step = step;
+            _step = 0;
             _browser = browser;
             _login = login;
             _password = password;
@@ -71,6 +71,37 @@ namespace CefTest
                     break;
                 case 7:
                     await Task.Run(() => MouseClick(500, 540));
+                    break;
+            }
+        }
+
+        public async void MakeStepApn(int step)
+        {
+            _step = step;
+            switch (step)
+            {
+                case 0:
+                    await Task.Run(() => MouseClick(45, 220));
+                    break;
+                case 1:
+                    await Task.Run(() => MouseClick(700, 370));
+                    break;
+                case 2:
+                    await Task.Run(() => MouseClick(460, 220));
+                    await Task.Run(() => KeyInput("unet"));
+                    break;
+                case 3:
+                    await Task.Run(() => MouseClick(460, 297));
+                    await Task.Run(() => KeyInput("unet"));
+                    break;
+                case 4:
+                    await Task.Run(() => MouseClick(400, 372));
+                    break;
+                case 5:
+                    await Task.Run(() => MouseClick(400, 420));
+                    break;
+                case 6:
+                    await Task.Run(() => MouseClick(530, 430));
                     break;
             }
         }
