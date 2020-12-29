@@ -43,7 +43,6 @@ namespace CefTest
         {
             label2.Text = "Log: ";
             var steps = new Steps(chromiumWebBrowser1, loginDefBox.Text, passwordDefBox.Text,loginBox.Text,passwordBox.Text);
-            
             if (checkAuth.Checked)
             {
                 var l = 0;
@@ -54,7 +53,7 @@ namespace CefTest
                     await Task.Delay(1000);
                     l++;
                 }
-                label2.Text += "\nLogin done.";
+                label2.Text += "\n- Login Есть.";
             }
 
             if (checkWifi.Checked)
@@ -67,7 +66,7 @@ namespace CefTest
                     await Task.Delay(1000);
                     i++;
                 }
-                label2.Text += "\nWiFi done.";
+                label2.Text += "\n- WiFi Есть.";
             }
 
             if (checkAPN.Checked)
@@ -80,7 +79,7 @@ namespace CefTest
                     await Task.Delay(1000);
                     k++;
                 }
-                label2.Text += "\nAPN done.";
+                label2.Text += "\n- APN Есть.";
             }
         }
 
@@ -90,11 +89,11 @@ namespace CefTest
             {
                 while (true)
                 {
-                    var point = label3.PointToClient(Cursor.Position);
+                    var point = label7.PointToClient(Cursor.Position);
                     var cX = point.X;
                     var cY = point.Y;
                     await Task.Delay(10);
-                    label3.Text = @"X = " + cX + ", Y = " + cY;
+                    label3.Text = @"X: " + cX + ", Y: " + cY;
                 }
             }
             catch { }

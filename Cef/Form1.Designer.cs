@@ -52,6 +52,7 @@ namespace CefTest
             this.checkWifi = new System.Windows.Forms.CheckBox();
             this.checkAuth = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -61,8 +62,8 @@ namespace CefTest
             // chromiumWebBrowser1
             // 
             this.chromiumWebBrowser1.ActivateBrowserOnCreation = false;
-            this.chromiumWebBrowser1.Location = new System.Drawing.Point(4, 4);
-            this.chromiumWebBrowser1.Margin = new System.Windows.Forms.Padding(4);
+            this.chromiumWebBrowser1.Location = new System.Drawing.Point(1, 1);
+            this.chromiumWebBrowser1.Margin = new System.Windows.Forms.Padding(1);
             this.chromiumWebBrowser1.Name = "chromiumWebBrowser1";
             this.chromiumWebBrowser1.Size = new System.Drawing.Size(1333, 725);
             this.chromiumWebBrowser1.TabIndex = 0;
@@ -139,12 +140,12 @@ namespace CefTest
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Location = new System.Drawing.Point(1368, 694);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 16);
             this.label3.TabIndex = 9;
-            this.label3.Text = "label3";
+            this.label3.Text = "lable3";
             // 
             // label4
             // 
@@ -271,6 +272,8 @@ namespace CefTest
             // checkAPN
             // 
             this.checkAPN.AutoSize = true;
+            this.checkAPN.Checked = true;
+            this.checkAPN.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkAPN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkAPN.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkAPN.Location = new System.Drawing.Point(10, 96);
@@ -283,6 +286,8 @@ namespace CefTest
             // checkWifi
             // 
             this.checkWifi.AutoSize = true;
+            this.checkWifi.Checked = true;
+            this.checkWifi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkWifi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkWifi.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkWifi.Location = new System.Drawing.Point(10, 63);
@@ -295,6 +300,8 @@ namespace CefTest
             // checkAuth
             // 
             this.checkAuth.AutoSize = true;
+            this.checkAuth.Checked = true;
+            this.checkAuth.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkAuth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkAuth.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkAuth.Location = new System.Drawing.Point(10, 30);
@@ -316,11 +323,21 @@ namespace CefTest
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Веб адрес";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1, 2);
+            this.label7.Margin = new System.Windows.Forms.Padding(1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.TabIndex = 21;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1689, 732);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -331,8 +348,11 @@ namespace CefTest
             this.Controls.Add(this.chromiumWebBrowser1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1709, 784);
             this.Name = "Form1";
-            this.Text = "CefTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Router Configuration";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -370,6 +390,7 @@ namespace CefTest
         private System.Windows.Forms.CheckBox checkWifi;
         private System.Windows.Forms.CheckBox checkAuth;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label7;
     }
 }
 
