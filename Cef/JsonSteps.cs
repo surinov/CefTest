@@ -20,6 +20,7 @@ namespace CefTest
         public int x { get; set; }
         public int y { get; set; }
         public string text { get; set; }
+        public int del { get; set; }
     }
 
     public class Wifi
@@ -29,6 +30,7 @@ namespace CefTest
         public int y { get; set; }
         public int? count { get; set; }
         public string text { get; set; }
+        public int del { get; set; }
     }
 
     public class Apn
@@ -38,6 +40,7 @@ namespace CefTest
         public int y { get; set; }
         public int? count { get; set; }
         public string text { get; set; }
+        public int del { get; set; }
     }
 
     public class Steps
@@ -80,93 +83,84 @@ namespace CefTest
             _name = restoredsteps.name;
         }
 
-        public async Task MakeLogin()
+        public async Task MakeLogin(bool onJsonDelay)
         {
-            for (var i = 0; i < _steps.steps.login.Count; i++)
+            foreach (var t in _steps.steps.login)
             {
-                switch (_steps.steps.login[i].@do)
+                var delay = onJsonDelay ? t.del : _delay;
+                switch (t.@do)
                 {
                     case "click":
-                        await Task.Run(() => MakeClick(_steps.steps.login[i].x, _steps.steps.login[i].y));
-                        await Task.Delay(_delay);
+                        await Task.Run(() => MakeClick(t.x, t.y));
+                        await Task.Delay(delay);
                         break;
                     case "input":
-                        var text = _steps.steps.login[i].text;
+                        var text = t.text;
                         if (text == "_login")
-                        {
                             text = _login;
-                        }
 
                         if (text == "_pass")
-                        {
                             text = _password;
-                        }
                         await Task.Run(() => MakeInput(text));
-                        await Task.Delay(_delay);
+                        await Task.Delay(delay);
                         break;
                 }
             }
         }
 
-        public async Task MakeWifi()
+        public async Task MakeWifi(bool onJsonDelay)
         {
-            for (var i = 0; i < _steps.steps.wifi.Count; i++)
+            foreach (var t in _steps.steps.wifi)
             {
-                switch (_steps.steps.wifi[i].@do)
+                var delay = onJsonDelay ? t.del : _delay;
+                switch (t.@do)
                 {
                     case "click":
-                        await Task.Run(() => MakeClick(_steps.steps.wifi[i].x, _steps.steps.wifi[i].y));
-                        await Task.Delay(_delay);
+                        await Task.Run(() => MakeClick(t.x, t.y));
+                        await Task.Delay(delay);
                         break;
                     case "input":
-                        var text = _steps.steps.wifi[i].text;
+                        var text = t.text;
                         if (text == "_setlogin")
-                        {
                             text = _setlogin;
-                        }
 
                         if (text == "_setpass")
-                        {
                             text = _setpassword;
-                        }
                         await Task.Run(() => MakeInput(text));
-                        await Task.Delay(_delay);
+                        await Task.Delay(delay);
                         break;
                     case "delete":
-                        await Task.Run(() => MakeDelete(_steps.steps.wifi[i].count));
-                        await Task.Delay(_delay);
+                        await Task.Run(() => MakeDelete(t.count));
+                        await Task.Delay(delay);
                         break;
                 }
             }
         }
 
-        public async Task MakeApn()
+        public async Task MakeApn(bool onJsonDelay)
         {
-            for (var i = 0; i < _steps.steps.apn.Count; i++)
+            foreach (var t in _steps.steps.apn)
             {
-                switch (_steps.steps.apn[i].@do)
+                var delay = onJsonDelay ? t.del : _delay;
+                switch (t.@do)
                 {
                     case "click":
-                        await Task.Run(() => MakeClick(_steps.steps.apn[i].x, _steps.steps.apn[i].y));
+                        await Task.Run(() => MakeClick(t.x, t.y));
                         await Task.Delay(_delay);
                         break;
                     case "input":
-                        var text = _steps.steps.apn[i].text;
+                        var text = t.text;
                         if (text == "_login")
-                        {
                             text = _setlogin;
-                        }
 
                         if (text == "_pass")
-                        {
                             text = _setpassword;
-                        }
                         await Task.Run(() => MakeInput(text));
-                        await Task.Delay(_delay);
+                        await Task.Delay(delay);
                         break;
                     case "delete":
-                        await Task.Run(() => MakeDelete(_steps.steps.apn[i].count));
-                        await Task.Delay(_delay);
+                        await Task.Run(() => MakeDelete(t.count));
+                        await Task.Delay(delay);
                         break;
                 }
             }

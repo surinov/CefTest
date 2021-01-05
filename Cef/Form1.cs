@@ -47,19 +47,19 @@ namespace CefTest
             webBrowser.Focus();
             if (checkAuth.Checked)
             {
-                await js.MakeLogin();
+                await js.MakeLogin(false);
                 label2.Text += "\n- Login Есть.";
             }
 
             if (checkWifi.Checked)
             {
-                await js.MakeWifi();
+                await js.MakeWifi(true);
                 label2.Text += "\n- WiFi Есть.";
             }
 
             if (checkAPN.Checked)
             {
-                await js.MakeApn();
+                await js.MakeApn(false);
                 label2.Text += "\n- APN Есть.";
             }
         }

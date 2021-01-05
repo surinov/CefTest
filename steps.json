@@ -3,35 +3,35 @@
     "steps":
     {
       "login":[
-      {"do": "click","x": 450,"y":310},
-      {"do": "input", "text":"_login"},
-      {"do": "click","x": 450,"y":350},
-      {"do": "input", "text":"_pass"},
-      {"do": "click","x": 500,"y":390}
+      {"do": "click","x": 450,"y":310,"del": 200},
+      {"do": "input", "text":"_login","del": 200},
+      {"do": "click","x": 450,"y":350,"del": 200},
+      {"do": "input", "text":"_pass","del": 200},
+      {"do": "click","x": 500,"y":390,"del": 200}
       ],
 	  "apn":[
-      {"do": "click","x": 45,"y":220},
-	  {"do": "click","x": 700,"y":370},
-	  {"do": "click","x": 460,"y":220},
-      {"do": "input", "text":"unet"},
-      {"do": "click","x": 460,"y":297},
-      {"do": "input", "text":"unet"},
-      {"do": "click","x": 400,"y":372},
-	  {"do": "click","x": 400,"y":420},
-	  {"do": "click","x": 530,"y":430}
+      {"do": "click","x": 45,"y":220,"del": 200},
+	  {"do": "click","x": 700,"y":370,"del": 200},
+	  {"do": "click","x": 460,"y":220,"del": 200},
+      {"do": "input", "text":"unet","del": 200},
+      {"do": "click","x": 460,"y":297,"del": 200},
+      {"do": "input", "text":"unet","del": 200},
+      {"do": "click","x": 400,"y":372,"del": 200},
+	  {"do": "click","x": 400,"y":420,"del": 200},
+	  {"do": "click","x": 530,"y":430,"del": 200}
       ],
       "wifi":[
-      {"do": "click","x": 45,"y":270},
-      {"do": "click","x": 500,"y":220},
-      {"do": "delete", "count": 12},
-      {"do": "input", "text":"_setlogin"},
-      {"do": "click","x": 460,"y":510},
-      {"do": "click","x": 50,"y":320},
-      {"do": "click","x": 500,"y":350},
-      {"do": "delete", "count": 12},
-      {"do": "input", "text":"_setpass"},
-      {"do": "click","x": 725,"y":550},
-      {"do": "click","x": 500,"y":540}
+      {"do": "click","x": 45,"y":270,"del": 200},
+      {"do": "click","x": 500,"y":220,"del": 200},
+      {"do": "delete", "count": 12,"del": 200},
+      {"do": "input", "text":"_login","del": 200},
+      {"do": "click","x": 460,"y":510,"del": 200},
+      {"do": "click","x": 50,"y":320,"del": 200},
+      {"do": "click","x": 500,"y":350,"del": 200},
+      {"do": "delete", "count": 12,"del": 200},
+      {"do": "input", "text":"_pass","del": 200},
+      {"do": "click","x": 725,"y":550,"del": 200},
+      {"do": "click","x": 500,"y":540,"del": 200}
       ]
     }
 }
