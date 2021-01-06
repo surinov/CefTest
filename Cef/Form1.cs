@@ -53,7 +53,7 @@ namespace CefTest
 
             if (checkWifi.Checked)
             {
-                await js.MakeWifi(true);
+                await js.MakeWifi(false);
                 label2.Text += "\n- WiFi Есть.";
             }
 
@@ -88,6 +88,9 @@ namespace CefTest
 
         private async void button2_Click(object sender, EventArgs e)
         {
+            var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text);
+            await js.ChangeLogin("click", 50, 50, "helloo", 14, 4, 300);
+            logTextBox.Text += js.LastChangeResult;
         }
     }
 }

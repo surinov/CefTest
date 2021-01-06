@@ -53,6 +53,7 @@ namespace CefTest
             this.checkAuth = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.logTextBox = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -123,7 +124,7 @@ namespace CefTest
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1027, 523);
+            this.button2.Location = new System.Drawing.Point(1027, 425);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -134,7 +135,7 @@ namespace CefTest
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1026, 564);
+            this.label3.Location = new System.Drawing.Point(880, 591);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
@@ -332,11 +333,20 @@ namespace CefTest
             this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 21;
             // 
+            // logTextBox
+            // 
+            this.logTextBox.Location = new System.Drawing.Point(1009, 454);
+            this.logTextBox.Name = "logTextBox";
+            this.logTextBox.Size = new System.Drawing.Size(251, 150);
+            this.logTextBox.TabIndex = 22;
+            this.logTextBox.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 605);
+            this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -389,6 +399,7 @@ namespace CefTest
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label7;
         public CefSharp.WinForms.ChromiumWebBrowser webBrowser;
+        private System.Windows.Forms.RichTextBox logTextBox;
     }
 }
 
