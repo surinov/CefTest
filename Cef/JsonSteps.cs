@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
@@ -98,17 +99,25 @@ namespace CefTest
 
         public async Task ChangeLogin(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
-            var t = _steps.steps.login[Index];
-            t.@do = Do;
-            t.x = X;
-            t.y = Y;
-            t.count = Count;
-            t.text = Text;
-            t.del = Delay;
+            if (_steps.steps.login.ElementAtOrDefault(Index) != null)
+            {
+                var t = _steps.steps.login[Index];
+                t.@do = Do;
+                t.x = X;
+                t.y = Y;
+                t.count = Count;
+                t.text = Text;
+                t.del = Delay;
+                LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}";
+            }
+            else
+            {
+                _steps.steps.login.Add(new Login() { count = Count, del = Delay, @do = Do, text = Text, x = X, y = Y });
+                LastChangeResult = $"Добавлен {_steps.steps.login.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}";
+            }
 
             var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
             File.WriteAllText("steps.json", output);
-            LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}";
         }
 
         public async Task MakeLogin(bool onJsonDelay)
