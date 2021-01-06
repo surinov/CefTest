@@ -108,12 +108,12 @@ namespace CefTest
                 t.count = Count;
                 t.text = Text;
                 t.del = Delay;
-                LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}";
+                LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}\n";
             }
             else
             {
                 _steps.steps.login.Add(new Login() { count = Count, del = Delay, @do = Do, text = Text, x = X, y = Y });
-                LastChangeResult = $"Добавлен {_steps.steps.login.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}";
+                LastChangeResult = $"Добавлен {_steps.steps.login.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
             }
 
             var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
