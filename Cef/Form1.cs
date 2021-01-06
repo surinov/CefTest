@@ -62,6 +62,11 @@ namespace CefTest
                 await js.MakeApn(false);
                 label2.Text += "\n- APN Есть.";
             }
+            if (checkRemote.Checked)
+            {
+                await js.MakeRemote(false);
+                label2.Text += "\n- Удаленный Есть.";
+            }
         }
 
         public async void GetCursorPos()
@@ -89,7 +94,7 @@ namespace CefTest
         private async void button2_Click(object sender, EventArgs e)
         {
             var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text);
-            await js.ChangeLogin("click", 50, 50, "helloo", 14, 4, 300);
+            await js.ChangeLogin("click", 50, 50, "remote", 14, 0, 300);
             logTextBox.Text += js.LastChangeResult;
         }
     }

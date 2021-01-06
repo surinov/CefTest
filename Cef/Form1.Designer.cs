@@ -54,6 +54,7 @@ namespace CefTest
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.logTextBox = new System.Windows.Forms.RichTextBox();
+            this.checkRemote = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -73,7 +74,7 @@ namespace CefTest
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(18, 106);
+            this.button1.Location = new System.Drawing.Point(19, 139);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 26);
             this.button1.TabIndex = 1;
@@ -251,16 +252,17 @@ namespace CefTest
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkRemote);
             this.groupBox3.Controls.Add(this.checkAPN);
             this.groupBox3.Controls.Add(this.checkWifi);
             this.groupBox3.Controls.Add(this.checkAuth);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(1009, 280);
+            this.groupBox3.Location = new System.Drawing.Point(1008, 242);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(125, 140);
+            this.groupBox3.Size = new System.Drawing.Size(125, 170);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Шаги";
@@ -341,6 +343,21 @@ namespace CefTest
             this.logTextBox.TabIndex = 22;
             this.logTextBox.Text = "";
             // 
+            // checkRemote
+            // 
+            this.checkRemote.AutoSize = true;
+            this.checkRemote.Checked = true;
+            this.checkRemote.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkRemote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkRemote.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkRemote.Location = new System.Drawing.Point(8, 102);
+            this.checkRemote.Margin = new System.Windows.Forms.Padding(2);
+            this.checkRemote.Name = "checkRemote";
+            this.checkRemote.Size = new System.Drawing.Size(89, 20);
+            this.checkRemote.TabIndex = 3;
+            this.checkRemote.Text = "Удаленный";
+            this.checkRemote.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,6 +417,7 @@ namespace CefTest
         private System.Windows.Forms.Label label7;
         public CefSharp.WinForms.ChromiumWebBrowser webBrowser;
         private System.Windows.Forms.RichTextBox logTextBox;
+        private System.Windows.Forms.CheckBox checkRemote;
     }
 }
 

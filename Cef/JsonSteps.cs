@@ -44,11 +44,22 @@ namespace CefTest
         public int del { get; set; }
     }
 
+    public class Remote
+    {
+        public string @do { get; set; }
+        public int x { get; set; }
+        public int y { get; set; }
+        public int? count { get; set; }
+        public string text { get; set; }
+        public int del { get; set; }
+    }
+
     public class Steps
     {
         public List<Login> login { get; set; }
         public List<Wifi> wifi { get; set; }
         public List<Apn> apn { get; set; }
+        public List<Remote> remote { get; set; }
     }
 
     public class JsonSteps
@@ -157,6 +168,34 @@ namespace CefTest
         public async Task MakeApn(bool onJsonDelay)
         {
             foreach (var t in _steps.steps.apn)
+            {
+                var delay = onJsonDelay ? t.del : _delay;
+                switch (t.@do)
+                {
+                    case "click":
+                        await Task.Run(() => MakeClick(t.x, t.y));
+                        await Task.Delay(_delay);
+                        break;
+                    case "input":
+                        var text = t.text;
+                        if (text == "_login")
+                            text = _setlogin;
+
+                        if (text == "_pass")
+                            text = _setpassword;
+                        await Task.Run(() => MakeInput(text));
+                        await Task.Delay(delay);
+                        break;
+                    case "delete":
+                        await Task.Run(() => MakeDelete(t.count));
+                        await Task.Delay(delay);
+                        break;
+                }
+            }
+        }
+        public async Task MakeRemote(bool onJsonDelay)
+        {
+            foreach (var t in _steps.steps.remote)
             {
                 var delay = onJsonDelay ? t.del : _delay;
                 switch (t.@do)
