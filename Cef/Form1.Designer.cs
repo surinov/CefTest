@@ -29,6 +29,7 @@ namespace CefTest
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.webBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,13 +49,21 @@ namespace CefTest
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBoxUrls = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkRemote = new System.Windows.Forms.CheckBox();
             this.checkAPN = new System.Windows.Forms.CheckBox();
             this.checkWifi = new System.Windows.Forms.CheckBox();
             this.checkAuth = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.logTextBox = new System.Windows.Forms.RichTextBox();
-            this.checkRemote = new System.Windows.Forms.CheckBox();
+            this.addBoxX = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addBoxY = new System.Windows.Forms.TextBox();
+            this.addBoxText = new System.Windows.Forms.TextBox();
+            this.addBoxDo = new System.Windows.Forms.TextBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.addBoxDel = new System.Windows.Forms.TextBox();
+            this.addBoxCount = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -117,7 +126,7 @@ namespace CefTest
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1141, 242);
+            this.label2.Location = new System.Drawing.Point(1010, 454);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 7;
@@ -125,7 +134,7 @@ namespace CefTest
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1027, 425);
+            this.button2.Location = new System.Drawing.Point(1027, 404);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -267,6 +276,21 @@ namespace CefTest
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Шаги";
             // 
+            // checkRemote
+            // 
+            this.checkRemote.AutoSize = true;
+            this.checkRemote.Checked = true;
+            this.checkRemote.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkRemote.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkRemote.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkRemote.Location = new System.Drawing.Point(8, 102);
+            this.checkRemote.Margin = new System.Windows.Forms.Padding(2);
+            this.checkRemote.Name = "checkRemote";
+            this.checkRemote.Size = new System.Drawing.Size(89, 20);
+            this.checkRemote.TabIndex = 3;
+            this.checkRemote.Text = "Удаленный";
+            this.checkRemote.UseVisualStyleBackColor = true;
+            // 
             // checkAPN
             // 
             this.checkAPN.AutoSize = true;
@@ -337,32 +361,86 @@ namespace CefTest
             // 
             // logTextBox
             // 
-            this.logTextBox.Location = new System.Drawing.Point(1009, 454);
+            this.logTextBox.Location = new System.Drawing.Point(1136, 454);
             this.logTextBox.Name = "logTextBox";
-            this.logTextBox.Size = new System.Drawing.Size(251, 150);
+            this.logTextBox.Size = new System.Drawing.Size(124, 150);
             this.logTextBox.TabIndex = 22;
             this.logTextBox.Text = "";
             // 
-            // checkRemote
+            // addBoxX
             // 
-            this.checkRemote.AutoSize = true;
-            this.checkRemote.Checked = true;
-            this.checkRemote.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkRemote.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkRemote.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkRemote.Location = new System.Drawing.Point(8, 102);
-            this.checkRemote.Margin = new System.Windows.Forms.Padding(2);
-            this.checkRemote.Name = "checkRemote";
-            this.checkRemote.Size = new System.Drawing.Size(89, 20);
-            this.checkRemote.TabIndex = 3;
-            this.checkRemote.Text = "Удаленный";
-            this.checkRemote.UseVisualStyleBackColor = true;
+            this.addBoxX.Location = new System.Drawing.Point(1144, 279);
+            this.addBoxX.Name = "addBoxX";
+            this.addBoxX.Size = new System.Drawing.Size(53, 20);
+            this.addBoxX.TabIndex = 23;
+            this.addBoxX.Text = "x";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // addBoxY
+            // 
+            this.addBoxY.Location = new System.Drawing.Point(1203, 279);
+            this.addBoxY.Name = "addBoxY";
+            this.addBoxY.Size = new System.Drawing.Size(53, 20);
+            this.addBoxY.TabIndex = 25;
+            this.addBoxY.Text = "y";
+            // 
+            // addBoxText
+            // 
+            this.addBoxText.Location = new System.Drawing.Point(1203, 319);
+            this.addBoxText.Name = "addBoxText";
+            this.addBoxText.Size = new System.Drawing.Size(53, 20);
+            this.addBoxText.TabIndex = 26;
+            this.addBoxText.Text = "text";
+            // 
+            // addBoxDo
+            // 
+            this.addBoxDo.Location = new System.Drawing.Point(1144, 319);
+            this.addBoxDo.Name = "addBoxDo";
+            this.addBoxDo.Size = new System.Drawing.Size(53, 20);
+            this.addBoxDo.TabIndex = 27;
+            this.addBoxDo.Text = "do";
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(1166, 390);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(75, 23);
+            this.addButton.TabIndex = 28;
+            this.addButton.Text = "addButton";
+            this.addButton.UseVisualStyleBackColor = true;
+            // 
+            // addBoxDel
+            // 
+            this.addBoxDel.Location = new System.Drawing.Point(1144, 354);
+            this.addBoxDel.Name = "addBoxDel";
+            this.addBoxDel.Size = new System.Drawing.Size(53, 20);
+            this.addBoxDel.TabIndex = 29;
+            this.addBoxDel.Text = "delay";
+            // 
+            // addBoxCount
+            // 
+            this.addBoxCount.Location = new System.Drawing.Point(1203, 354);
+            this.addBoxCount.Name = "addBoxCount";
+            this.addBoxCount.Size = new System.Drawing.Size(53, 20);
+            this.addBoxCount.TabIndex = 30;
+            this.addBoxCount.Text = "count";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 605);
+            this.Controls.Add(this.addBoxCount);
+            this.Controls.Add(this.addBoxDel);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.addBoxDo);
+            this.Controls.Add(this.addBoxText);
+            this.Controls.Add(this.addBoxY);
+            this.Controls.Add(this.addBoxX);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox4);
@@ -418,6 +496,14 @@ namespace CefTest
         public CefSharp.WinForms.ChromiumWebBrowser webBrowser;
         private System.Windows.Forms.RichTextBox logTextBox;
         private System.Windows.Forms.CheckBox checkRemote;
+        private System.Windows.Forms.TextBox addBoxX;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TextBox addBoxY;
+        private System.Windows.Forms.TextBox addBoxText;
+        private System.Windows.Forms.TextBox addBoxDo;
+        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.TextBox addBoxDel;
+        private System.Windows.Forms.TextBox addBoxCount;
     }
 }
 
