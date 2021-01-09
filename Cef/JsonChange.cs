@@ -8,17 +8,17 @@ namespace CefTest
 {
     class JsonChange
     {
-        private Model _steps;
+        internal Model Steps;
         public string LastChangeResult { get; set; }
         public JsonChange()
         {
             var js = new JsonSteps();
-            _steps = js._steps;
+            Steps = js._steps;
         }
         public async Task AddStepLogin(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
             var js = new JsonSteps();
-            var login = _steps.steps.login;
+            var login = Steps.steps.login;
             if (login.ElementAtOrDefault(Index) != null)
             {
                 var t = login[Index];
@@ -36,13 +36,13 @@ namespace CefTest
                 LastChangeResult = $"Добавлен {login.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
             }
 
-            var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
+            var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
             File.WriteAllText("steps.json", output);
         }
         public async Task AddStepWifi(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
             var js = new JsonSteps();
-            var wifi = _steps.steps.wifi;
+            var wifi = Steps.steps.wifi;
             if (wifi.ElementAtOrDefault(Index) != null)
             {
                 var t = wifi[Index];
@@ -60,13 +60,13 @@ namespace CefTest
                 LastChangeResult = $"Добавлен {wifi.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
             }
 
-            var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
+            var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
             File.WriteAllText("steps.json", output);
         }
         public async Task AddStepApn(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
             var js = new JsonSteps();
-            var apn = _steps.steps.apn;
+            var apn = Steps.steps.apn;
             if (apn.ElementAtOrDefault(Index) != null)
             {
                 var t = apn[Index];
@@ -84,13 +84,13 @@ namespace CefTest
                 LastChangeResult = $"Добавлен {apn.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
             }
 
-            var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
+            var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
             File.WriteAllText("steps.json", output);
         }
         public async Task AddStepRemote(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
             var js = new JsonSteps();
-            var remote = _steps.steps.remote;
+            var remote = Steps.steps.remote;
             if (remote.ElementAtOrDefault(Index) != null)
             {
                 var t = remote[Index];
@@ -108,7 +108,7 @@ namespace CefTest
                 LastChangeResult = $"Добавлен {remote.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
             }
 
-            var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
+            var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
             File.WriteAllText("steps.json", output);
         }
     }

@@ -95,9 +95,6 @@ namespace CefTest
 
         private async void debugButton_Click(object sender, EventArgs e)
         {
-            var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text);
-            await js.ChangeLogin("click", 50, 50, "remote", 14, 7, 300);
-            logTextBox.Text += js.LastChangeResult;
         }
 
         private async void addButton_Click(object sender, EventArgs e)

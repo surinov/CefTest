@@ -104,53 +104,6 @@ namespace CefTest
             _name = restoredsteps.name;
         }
 
-        public async Task ChangeLogin(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
-        {
-            if (_steps.steps.login.ElementAtOrDefault(Index) != null)
-            {
-                var t = _steps.steps.login[Index];
-                t.@do = Do;
-                t.x = X;
-                t.y = Y;
-                t.count = Count;
-                t.text = Text;
-                t.del = Delay;
-                LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}\n";
-            }
-            else
-            {
-                _steps.steps.login.Add(new Login() { count = Count, del = Delay, @do = Do, text = Text, x = X, y = Y });
-                LastChangeResult = $"Добавлен {_steps.steps.login.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
-            }
-
-            var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
-            File.WriteAllText("steps.json", output);
-        }
-
-        public async Task AddStepRemote(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
-        {
-            var remote = _steps.steps.remote;
-            if (remote.ElementAtOrDefault(Index) != null)
-            {
-                var t = remote[Index];
-                t.@do = Do;
-                t.x = X;
-                t.y = Y;
-                t.count = Count;
-                t.text = Text;
-                t.del = Delay;
-                LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}\n";
-            }
-            else
-            {
-                _steps.steps.login.Add(new Login() { count = Count, del = Delay, @do = Do, text = Text, x = X, y = Y });
-                LastChangeResult = $"Добавлен {remote.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
-            }
-
-            var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
-            File.WriteAllText("steps.json", output);
-        }
-
         public async Task MakeLogin(bool onJsonDelay)
         {
             foreach (var t in _steps.steps.login)
