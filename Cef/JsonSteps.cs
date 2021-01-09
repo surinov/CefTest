@@ -246,9 +246,9 @@ namespace CefTest
                 SendKeys.Flush();
             }
         }
-        public void MakeDelete(int? count)
+        public void MakeDelete(int? cout)
         {
-            for (var i = 0; i < count; i++)
+            for (var i = 0; i < cout; i++)
             {
                 SendKeys.SendWait("{BS}");
                 SendKeys.Flush();
