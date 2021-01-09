@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace CefTest
     {
         private string _name;
         private int _delay;
-        private Model _steps;
+        public Model _steps;
         private readonly ChromiumWebBrowser _browser;
         private readonly string _login;
         private readonly string _password;
@@ -84,6 +85,12 @@ namespace CefTest
             _password = password;
             _setlogin = setLogin;
             _setpassword = setPassword;
+        }
+
+        public JsonSteps()
+        {
+            ParseJson();
+            _delay = 1000;
         }
 
         public string GetName() { return _name; }
@@ -114,6 +121,30 @@ namespace CefTest
             {
                 _steps.steps.login.Add(new Login() { count = Count, del = Delay, @do = Do, text = Text, x = X, y = Y });
                 LastChangeResult = $"Добавлен {_steps.steps.login.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
+            }
+
+            var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));
+            File.WriteAllText("steps.json", output);
+        }
+
+        public async Task AddStepRemote(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
+        {
+            var remote = _steps.steps.remote;
+            if (remote.ElementAtOrDefault(Index) != null)
+            {
+                var t = remote[Index];
+                t.@do = Do;
+                t.x = X;
+                t.y = Y;
+                t.count = Count;
+                t.text = Text;
+                t.del = Delay;
+                LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}\n";
+            }
+            else
+            {
+                _steps.steps.login.Add(new Login() { count = Count, del = Delay, @do = Do, text = Text, x = X, y = Y });
+                LastChangeResult = $"Добавлен {remote.Count} шаг: do {Do}, x {X}, y {Y}, text {Text}, count {Count}\n";
             }
 
             var output = await Task.Run(() => JsonConvert.SerializeObject(_steps, Formatting.Indented));

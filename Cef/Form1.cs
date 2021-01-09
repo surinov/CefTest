@@ -7,10 +7,12 @@ namespace CefTest
 {
     public partial class Form1 : Form
     {
+        public int AddIndex { get; set; } = 0;
         public Form1()
         {
             InitializeComponent();
             comboBoxUrls.SelectedIndex = 2;
+            comboBoxAdd.SelectedIndex = 3;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -30,7 +32,7 @@ namespace CefTest
                    passwordBox.Text == string.Empty;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void runButton_Click(object sender, EventArgs e)
         {
             if (!TextboxIsNull()) {
                 try{await MakeStep();}
@@ -91,11 +93,44 @@ namespace CefTest
             webBrowser.Load(comboBoxUrls.SelectedItem.ToString());
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void debugButton_Click(object sender, EventArgs e)
         {
             var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text);
             await js.ChangeLogin("click", 50, 50, "remote", 14, 7, 300);
             logTextBox.Text += js.LastChangeResult;
+        }
+
+        private async void addButton_Click(object sender, EventArgs e)
+        {
+            if (comboBoxAdd.SelectedIndex == 0)
+                await ChangeStep("login");
+            if (comboBoxAdd.SelectedIndex == 1)
+                await ChangeStep("wifi");
+            if (comboBoxAdd.SelectedIndex == 2)
+                await ChangeStep("apn");
+            if (comboBoxAdd.SelectedIndex == 3)
+                await ChangeStep("remote");
+        }
+
+        private async Task ChangeStep(string part)
+        {
+            var x = int.Parse(addBoxX.Text);
+            var y = int.Parse(addBoxY.Text);
+            var @do = addBoxDo.Text;
+            var text = addBoxText.Text;
+            var del = int.Parse(addBoxDel.Text);
+            var count = int.Parse(addBoxCount.Text);
+            var jc = new JsonChange();
+            if (part == "login")
+                await jc.AddStepLogin(@do, x, y, text, count, AddIndex, del);
+            if (part == "wifi")
+                await jc.AddStepWifi(@do, x, y, text, count, AddIndex, del);
+            if (part == "apn")
+                await jc.AddStepApn(@do, x, y, text, count, AddIndex, del);
+            if (part == "remote")
+                await jc.AddStepRemote(@do, x, y, text, count, AddIndex, del);
+            logTextBox.Text += jc.LastChangeResult + AddIndex;
+            AddIndex += 1;
         }
     }
 }
