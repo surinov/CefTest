@@ -149,7 +149,7 @@ namespace CefTest
                 await jc.AddStepApn(@do, x, y, text, count, AddIndex, del);
             if (part == "remote")
                 await jc.AddStepRemote(@do, x, y, text, count, AddIndex, del);
-            logTextBox.Text += jc.LastChangeResult + AddIndex;
+            logTextBox.Text += jc.LastChangeResult;
             AddIndex += 1;
         }
 

@@ -139,7 +139,7 @@ namespace CefTest
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1013, 454);
+            this.label2.Location = new System.Drawing.Point(1006, 432);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 7;
@@ -236,7 +236,7 @@ namespace CefTest
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(124, 138);
+            this.groupBox1.Size = new System.Drawing.Size(110, 138);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Войти:";
@@ -253,7 +253,7 @@ namespace CefTest
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(124, 138);
+            this.groupBox2.Size = new System.Drawing.Size(114, 138);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Установить:";
@@ -285,7 +285,7 @@ namespace CefTest
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(125, 157);
+            this.groupBox3.Size = new System.Drawing.Size(110, 157);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Шаги";
@@ -375,9 +375,9 @@ namespace CefTest
             // 
             // logTextBox
             // 
-            this.logTextBox.Location = new System.Drawing.Point(1136, 454);
+            this.logTextBox.Location = new System.Drawing.Point(1123, 454);
             this.logTextBox.Name = "logTextBox";
-            this.logTextBox.Size = new System.Drawing.Size(124, 150);
+            this.logTextBox.Size = new System.Drawing.Size(137, 150);
             this.logTextBox.TabIndex = 22;
             this.logTextBox.Text = "";
             // 
@@ -435,10 +435,10 @@ namespace CefTest
             // 
             this.tabControlAdd.Controls.Add(this.tabPage1);
             this.tabControlAdd.Controls.Add(this.tabPage2);
-            this.tabControlAdd.Location = new System.Drawing.Point(1136, 242);
+            this.tabControlAdd.Location = new System.Drawing.Point(1123, 242);
             this.tabControlAdd.Name = "tabControlAdd";
             this.tabControlAdd.SelectedIndex = 0;
-            this.tabControlAdd.Size = new System.Drawing.Size(124, 206);
+            this.tabControlAdd.Size = new System.Drawing.Size(137, 206);
             this.tabControlAdd.TabIndex = 31;
             // 
             // tabPage1
@@ -460,7 +460,7 @@ namespace CefTest
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(116, 180);
+            this.tabPage1.Size = new System.Drawing.Size(129, 180);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Шаг";
             this.tabPage1.UseVisualStyleBackColor = true;
