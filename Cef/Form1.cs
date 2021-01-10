@@ -134,12 +134,12 @@ namespace CefTest
 
         private async Task ChangeStep(string part)
         {
-            var x = int.Parse(addBoxX.Text);
-            var y = int.Parse(addBoxY.Text);
+            var x = addBoxX.Enabled? int.Parse(addBoxX.Text) : 0;
+            var y = addBoxY.Enabled? int.Parse(addBoxY.Text) : 0;
             var @do = comboBoxDo.SelectedItem.ToString();
-            var text = addBoxText.Text;
+            var text = addBoxText.Enabled? addBoxText.Text: null;
             var del = int.Parse(addBoxDel.Text);
-            var count = int.Parse(addBoxCount.Text);
+            var count = addBoxCount.Enabled? int.Parse(addBoxCount.Text) : 0;
             var jc = new JsonChange();
             if (part == "login")
                 await jc.AddStepLogin(@do, x, y, text, count, AddIndex, del);
