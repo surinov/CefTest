@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
+using CefSharp.WinForms;
 
 namespace CefTest
 {
@@ -13,12 +14,21 @@ namespace CefTest
             InitializeComponent();
             comboBoxUrls.SelectedIndex = 2;
             comboBoxAdd.SelectedIndex = 3;
+            comboBoxDo.SelectedIndex = 0;
         }
 
         protected override void OnLoad(EventArgs e)
         {
             webBrowser.Load(comboBoxUrls.SelectedItem.ToString());
             GetCursorPos();
+            //var l = new Log();
+            //l.Notify += L_Notify;
+        }
+
+        private async void L_Notify(string message)
+        {
+            await Task.Delay(10);
+            MessageBox.Show($"{message}");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -71,7 +81,7 @@ namespace CefTest
             }
         }
 
-        public async void GetCursorPos()
+        public async Task GetCursorPos()
         {
             try
             {
@@ -95,25 +105,38 @@ namespace CefTest
 
         private async void debugButton_Click(object sender, EventArgs e)
         {
+            //for debug
         }
 
         private async void addButton_Click(object sender, EventArgs e)
         {
-            if (comboBoxAdd.SelectedIndex == 0)
-                await ChangeStep("login");
-            if (comboBoxAdd.SelectedIndex == 1)
-                await ChangeStep("wifi");
-            if (comboBoxAdd.SelectedIndex == 2)
-                await ChangeStep("apn");
-            if (comboBoxAdd.SelectedIndex == 3)
-                await ChangeStep("remote");
+            try
+            {
+                switch (comboBoxAdd.SelectedIndex)
+                {
+                    case 0:
+                        await ChangeStep("login");
+                        break;
+                    case 1:
+                        await ChangeStep("wifi");
+                        break;
+                    case 2:
+                        await ChangeStep("apn");
+                        break;
+                    case 3:
+                        await ChangeStep("remote");
+                        break;
+                }
+            }
+            catch { //ignored
+            }
         }
 
         private async Task ChangeStep(string part)
         {
             var x = int.Parse(addBoxX.Text);
             var y = int.Parse(addBoxY.Text);
-            var @do = addBoxDo.Text;
+            var @do = comboBoxDo.SelectedItem.ToString();
             var text = addBoxText.Text;
             var del = int.Parse(addBoxDel.Text);
             var count = int.Parse(addBoxCount.Text);
@@ -128,6 +151,34 @@ namespace CefTest
                 await jc.AddStepRemote(@do, x, y, text, count, AddIndex, del);
             logTextBox.Text += jc.LastChangeResult + AddIndex;
             AddIndex += 1;
+        }
+
+        private void comboBoxDo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBoxDo.SelectedIndex)
+            {
+                case 0:
+                    addBoxX.Enabled = true;
+                    addBoxY.Enabled = true;
+                    addBoxCount.Enabled = false;
+                    addBoxDel.Enabled = false;
+                    addBoxText.Enabled = false;
+                    break;
+                case 1:
+                    addBoxText.Enabled = true;
+                    addBoxX.Enabled = false;
+                    addBoxY.Enabled = false;
+                    addBoxDel.Enabled = false;
+                    addBoxCount.Enabled = false;
+                    break;
+                case 2:
+                    addBoxCount.Enabled = true;
+                    addBoxText.Enabled = false;
+                    addBoxX.Enabled = false;
+                    addBoxY.Enabled = false;
+                    addBoxDel.Enabled = false;
+                    break;
+            }
         }
     }
 }

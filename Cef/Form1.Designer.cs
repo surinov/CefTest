@@ -1,4 +1,7 @@
 ﻿
+using CefSharp;
+using CefSharp.WinForms;
+
 namespace CefTest
 {
     partial class Form1
@@ -29,7 +32,6 @@ namespace CefTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.webBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.runButton = new System.Windows.Forms.Button();
@@ -57,10 +59,8 @@ namespace CefTest
             this.label7 = new System.Windows.Forms.Label();
             this.logTextBox = new System.Windows.Forms.RichTextBox();
             this.addBoxX = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addBoxY = new System.Windows.Forms.TextBox();
             this.addBoxText = new System.Windows.Forms.TextBox();
-            this.addBoxDo = new System.Windows.Forms.TextBox();
             this.addButton = new System.Windows.Forms.Button();
             this.addBoxDel = new System.Windows.Forms.TextBox();
             this.addBoxCount = new System.Windows.Forms.TextBox();
@@ -74,6 +74,7 @@ namespace CefTest
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxAdd = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBoxDo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -157,6 +158,7 @@ namespace CefTest
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(880, 591);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
@@ -190,7 +192,7 @@ namespace CefTest
             this.loginBox.Name = "loginBox";
             this.loginBox.Size = new System.Drawing.Size(100, 24);
             this.loginBox.TabIndex = 15;
-            this.loginBox.Text = "te05819-4";
+            this.loginBox.Text = "lte05819-4";
             // 
             // label5
             // 
@@ -387,11 +389,6 @@ namespace CefTest
             this.addBoxX.TabIndex = 23;
             this.addBoxX.Text = "500";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // addBoxY
             // 
             this.addBoxY.Location = new System.Drawing.Point(65, 43);
@@ -407,14 +404,6 @@ namespace CefTest
             this.addBoxText.Size = new System.Drawing.Size(45, 20);
             this.addBoxText.TabIndex = 26;
             this.addBoxText.Text = "helloW";
-            // 
-            // addBoxDo
-            // 
-            this.addBoxDo.Location = new System.Drawing.Point(6, 83);
-            this.addBoxDo.Name = "addBoxDo";
-            this.addBoxDo.Size = new System.Drawing.Size(45, 20);
-            this.addBoxDo.TabIndex = 27;
-            this.addBoxDo.Text = "click";
             // 
             // addButton
             // 
@@ -454,6 +443,7 @@ namespace CefTest
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBoxDo);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Controls.Add(this.label11);
@@ -466,14 +456,13 @@ namespace CefTest
             this.tabPage1.Controls.Add(this.addBoxCount);
             this.tabPage1.Controls.Add(this.addBoxText);
             this.tabPage1.Controls.Add(this.addBoxDel);
-            this.tabPage1.Controls.Add(this.addBoxDo);
             this.tabPage1.Controls.Add(this.addButton);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(116, 180);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "AddPage";
+            this.tabPage1.Text = "Шаг";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label13
@@ -556,6 +545,22 @@ namespace CefTest
             this.tabPage2.Text = "P2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // comboBoxDo
+            // 
+            this.comboBoxDo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDo.FormattingEnabled = true;
+            this.comboBoxDo.Items.AddRange(new object[] {
+            "click",
+            "input",
+            "delete"});
+            this.comboBoxDo.Location = new System.Drawing.Point(6, 82);
+            this.comboBoxDo.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxDo.Name = "comboBoxDo";
+            this.comboBoxDo.Size = new System.Drawing.Size(45, 21);
+            this.comboBoxDo.TabIndex = 38;
+            this.comboBoxDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxDo_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,10 +626,8 @@ namespace CefTest
         private System.Windows.Forms.RichTextBox logTextBox;
         private System.Windows.Forms.CheckBox checkRemote;
         private System.Windows.Forms.TextBox addBoxX;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox addBoxY;
         private System.Windows.Forms.TextBox addBoxText;
-        private System.Windows.Forms.TextBox addBoxDo;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox addBoxDel;
         private System.Windows.Forms.TextBox addBoxCount;
@@ -638,6 +641,7 @@ namespace CefTest
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxAdd;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.ComboBox comboBoxDo;
     }
 }
 

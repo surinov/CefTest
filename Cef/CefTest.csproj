@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="JsonChange.cs" />
     <Compile Include="JsonSteps.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

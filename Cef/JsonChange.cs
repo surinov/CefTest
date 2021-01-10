@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -17,7 +16,6 @@ namespace CefTest
         }
         public async Task AddStepLogin(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
-            var js = new JsonSteps();
             var login = Steps.steps.login;
             if (login.ElementAtOrDefault(Index) != null)
             {
@@ -41,7 +39,6 @@ namespace CefTest
         }
         public async Task AddStepWifi(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
-            var js = new JsonSteps();
             var wifi = Steps.steps.wifi;
             if (wifi.ElementAtOrDefault(Index) != null)
             {
@@ -65,7 +62,6 @@ namespace CefTest
         }
         public async Task AddStepApn(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
-            var js = new JsonSteps();
             var apn = Steps.steps.apn;
             if (apn.ElementAtOrDefault(Index) != null)
             {
@@ -76,7 +72,7 @@ namespace CefTest
                 t.count = Count;
                 t.text = Text;
                 t.del = Delay;
-                js.LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}\n";
+                LastChangeResult = $"Изменено {Index} шаг: do {t.@do}, x {t.x}, y {t.y}, text {t.text}, count {t.count}\n";
             }
             else
             {
@@ -89,7 +85,6 @@ namespace CefTest
         }
         public async Task AddStepRemote(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
-            var js = new JsonSteps();
             var remote = Steps.steps.remote;
             if (remote.ElementAtOrDefault(Index) != null)
             {
