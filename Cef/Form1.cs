@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
@@ -6,9 +8,11 @@ using CefSharp.WinForms;
 
 namespace CefTest
 {
+    public delegate void MyDelegate(int x,int y);
     public partial class Form1 : Form
     {
         public int AddIndex { get; set; } = 0;
+        public string mess { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -25,10 +29,10 @@ namespace CefTest
             //l.Notify += L_Notify;
         }
 
-        private async void L_Notify(string message)
+        public async void L_Notify(string message)
         {
             await Task.Delay(10);
-            MessageBox.Show($"{message}");
+            label2.Text = message;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -87,7 +91,7 @@ namespace CefTest
             {
                 while (true)
                 {
-                    var point = label7.PointToClient(Cursor.Position);
+                    var point = webBrowser.PointToClient(Cursor.Position);
                     var cX = point.X;
                     var cY = point.Y;
                     await Task.Delay(10);
@@ -103,9 +107,9 @@ namespace CefTest
             webBrowser.Load(comboBoxUrls.SelectedItem.ToString());
         }
 
-        private async void debugButton_Click(object sender, EventArgs e)
+        private void debugButton_Click(object sender, EventArgs e)
         {
-            //for debug
+            //ignored
         }
 
         private async void addButton_Click(object sender, EventArgs e)
@@ -160,6 +164,7 @@ namespace CefTest
                 case 0:
                     addBoxX.Enabled = true;
                     addBoxY.Enabled = true;
+                    addOutForm.Enabled = true;
                     addBoxCount.Enabled = false;
                     addBoxDel.Enabled = false;
                     addBoxText.Enabled = false;
@@ -170,6 +175,7 @@ namespace CefTest
                     addBoxY.Enabled = false;
                     addBoxDel.Enabled = false;
                     addBoxCount.Enabled = false;
+                    addOutForm.Enabled = false;
                     break;
                 case 2:
                     addBoxCount.Enabled = true;
@@ -177,8 +183,32 @@ namespace CefTest
                     addBoxX.Enabled = false;
                     addBoxY.Enabled = false;
                     addBoxDel.Enabled = false;
+                    addOutForm.Enabled = false;
                     break;
             }
+        }
+
+        private void addOutForm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var bmp = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                var g = Graphics.FromImage(bmp);
+                var size = new Size(Screen.PrimaryScreen.Bounds.Size.Height - 100,
+                    Screen.PrimaryScreen.Bounds.Size.Width - 100);
+                g.CopyFromScreen(0, 25, 0, 0,
+                    Screen.PrimaryScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
+                var newForm = new Form2(bmp, Add);
+                newForm.Show();
+            }
+            catch
+            { // ignored
+            }
+        }
+        private void Add(int x, int y)
+        {
+            addBoxX.Text = x.ToString();
+            addBoxY.Text = y.ToString();
         }
     }
 }

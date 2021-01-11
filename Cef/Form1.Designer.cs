@@ -75,6 +75,7 @@ namespace CefTest
             this.comboBoxAdd = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.comboBoxDo = new System.Windows.Forms.ComboBox();
+            this.addOutForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -391,7 +392,7 @@ namespace CefTest
             // 
             // addBoxY
             // 
-            this.addBoxY.Location = new System.Drawing.Point(65, 43);
+            this.addBoxY.Location = new System.Drawing.Point(56, 43);
             this.addBoxY.Name = "addBoxY";
             this.addBoxY.Size = new System.Drawing.Size(45, 20);
             this.addBoxY.TabIndex = 25;
@@ -399,7 +400,7 @@ namespace CefTest
             // 
             // addBoxText
             // 
-            this.addBoxText.Location = new System.Drawing.Point(65, 83);
+            this.addBoxText.Location = new System.Drawing.Point(56, 83);
             this.addBoxText.Name = "addBoxText";
             this.addBoxText.Size = new System.Drawing.Size(45, 20);
             this.addBoxText.TabIndex = 26;
@@ -425,7 +426,7 @@ namespace CefTest
             // 
             // addBoxCount
             // 
-            this.addBoxCount.Location = new System.Drawing.Point(65, 125);
+            this.addBoxCount.Location = new System.Drawing.Point(56, 125);
             this.addBoxCount.Name = "addBoxCount";
             this.addBoxCount.Size = new System.Drawing.Size(45, 20);
             this.addBoxCount.TabIndex = 30;
@@ -443,6 +444,7 @@ namespace CefTest
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.addOutForm);
             this.tabPage1.Controls.Add(this.comboBoxDo);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label12);
@@ -468,7 +470,7 @@ namespace CefTest
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(62, 109);
+            this.label13.Location = new System.Drawing.Point(53, 109);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(35, 13);
             this.label13.TabIndex = 37;
@@ -486,7 +488,7 @@ namespace CefTest
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(62, 67);
+            this.label11.Location = new System.Drawing.Point(53, 67);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(28, 13);
             this.label11.TabIndex = 35;
@@ -504,7 +506,7 @@ namespace CefTest
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(62, 27);
+            this.label9.Location = new System.Drawing.Point(53, 27);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 33;
@@ -560,6 +562,18 @@ namespace CefTest
             this.comboBoxDo.Size = new System.Drawing.Size(45, 21);
             this.comboBoxDo.TabIndex = 38;
             this.comboBoxDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxDo_SelectedIndexChanged);
+            // 
+            // addOutForm
+            // 
+            this.addOutForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addOutForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addOutForm.Location = new System.Drawing.Point(104, 43);
+            this.addOutForm.Name = "addOutForm";
+            this.addOutForm.Size = new System.Drawing.Size(20, 20);
+            this.addOutForm.TabIndex = 32;
+            this.addOutForm.Text = "X";
+            this.addOutForm.UseVisualStyleBackColor = true;
+            this.addOutForm.Click += new System.EventHandler(this.addOutForm_Click);
             // 
             // Form1
             // 
@@ -642,6 +656,7 @@ namespace CefTest
         private System.Windows.Forms.ComboBox comboBoxAdd;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ComboBox comboBoxDo;
+        private System.Windows.Forms.Button addOutForm;
     }
 }
 
