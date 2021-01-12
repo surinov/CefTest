@@ -38,7 +38,6 @@ namespace CefTest
             this.passwordDefBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.adressButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.debugButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,6 +65,8 @@ namespace CefTest
             this.addBoxCount = new System.Windows.Forms.TextBox();
             this.tabControlAdd = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.addOutForm = new System.Windows.Forms.Button();
+            this.comboBoxDo = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -74,14 +75,16 @@ namespace CefTest
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxAdd = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comboBoxDo = new System.Windows.Forms.ComboBox();
-            this.addOutForm = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.comboBoxModels = new System.Windows.Forms.ComboBox();
+            this.OpenModelButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControlAdd.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // webBrowser
@@ -136,19 +139,9 @@ namespace CefTest
             this.adressButton.UseVisualStyleBackColor = true;
             this.adressButton.Click += new System.EventHandler(this.adressButton_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(1006, 432);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 16);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Лог:";
-            // 
             // debugButton
             // 
-            this.debugButton.Location = new System.Drawing.Point(1027, 404);
+            this.debugButton.Location = new System.Drawing.Point(1028, 466);
             this.debugButton.Name = "debugButton";
             this.debugButton.Size = new System.Drawing.Size(75, 23);
             this.debugButton.TabIndex = 8;
@@ -233,7 +226,7 @@ namespace CefTest
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.loginDefBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(1008, 90);
+            this.groupBox1.Location = new System.Drawing.Point(1009, 152);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -250,7 +243,7 @@ namespace CefTest
             this.groupBox2.Controls.Add(this.loginBox);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(1136, 90);
+            this.groupBox2.Location = new System.Drawing.Point(1137, 152);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -282,7 +275,7 @@ namespace CefTest
             this.groupBox3.Controls.Add(this.checkAuth);
             this.groupBox3.Controls.Add(this.runButton);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(1008, 242);
+            this.groupBox3.Location = new System.Drawing.Point(1009, 304);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -356,7 +349,7 @@ namespace CefTest
             this.groupBox4.Controls.Add(this.comboBoxUrls);
             this.groupBox4.Controls.Add(this.adressButton);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(1009, 4);
+            this.groupBox4.Location = new System.Drawing.Point(1009, 67);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -376,9 +369,9 @@ namespace CefTest
             // 
             // logTextBox
             // 
-            this.logTextBox.Location = new System.Drawing.Point(1123, 454);
+            this.logTextBox.Location = new System.Drawing.Point(1009, 522);
             this.logTextBox.Name = "logTextBox";
-            this.logTextBox.Size = new System.Drawing.Size(137, 150);
+            this.logTextBox.Size = new System.Drawing.Size(251, 82);
             this.logTextBox.TabIndex = 22;
             this.logTextBox.Text = "";
             // 
@@ -436,7 +429,7 @@ namespace CefTest
             // 
             this.tabControlAdd.Controls.Add(this.tabPage1);
             this.tabControlAdd.Controls.Add(this.tabPage2);
-            this.tabControlAdd.Location = new System.Drawing.Point(1123, 242);
+            this.tabControlAdd.Location = new System.Drawing.Point(1124, 304);
             this.tabControlAdd.Name = "tabControlAdd";
             this.tabControlAdd.SelectedIndex = 0;
             this.tabControlAdd.Size = new System.Drawing.Size(137, 206);
@@ -466,6 +459,34 @@ namespace CefTest
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Шаг";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // addOutForm
+            // 
+            this.addOutForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addOutForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addOutForm.Location = new System.Drawing.Point(104, 43);
+            this.addOutForm.Name = "addOutForm";
+            this.addOutForm.Size = new System.Drawing.Size(20, 20);
+            this.addOutForm.TabIndex = 32;
+            this.addOutForm.Text = "X";
+            this.addOutForm.UseVisualStyleBackColor = true;
+            this.addOutForm.Click += new System.EventHandler(this.addOutForm_Click);
+            // 
+            // comboBoxDo
+            // 
+            this.comboBoxDo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDo.FormattingEnabled = true;
+            this.comboBoxDo.Items.AddRange(new object[] {
+            "click",
+            "input",
+            "delete"});
+            this.comboBoxDo.Location = new System.Drawing.Point(6, 82);
+            this.comboBoxDo.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxDo.Name = "comboBoxDo";
+            this.comboBoxDo.Size = new System.Drawing.Size(45, 21);
+            this.comboBoxDo.TabIndex = 38;
+            this.comboBoxDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxDo_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -542,44 +563,58 @@ namespace CefTest
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(116, 180);
+            this.tabPage2.Size = new System.Drawing.Size(129, 180);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "P2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // comboBoxDo
+            // groupBox5
             // 
-            this.comboBoxDo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBoxDo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDo.FormattingEnabled = true;
-            this.comboBoxDo.Items.AddRange(new object[] {
-            "click",
-            "input",
-            "delete"});
-            this.comboBoxDo.Location = new System.Drawing.Point(6, 82);
-            this.comboBoxDo.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBoxDo.Name = "comboBoxDo";
-            this.comboBoxDo.Size = new System.Drawing.Size(45, 21);
-            this.comboBoxDo.TabIndex = 38;
-            this.comboBoxDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxDo_SelectedIndexChanged);
+            this.groupBox5.Controls.Add(this.comboBoxModels);
+            this.groupBox5.Controls.Add(this.OpenModelButton);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox5.Location = new System.Drawing.Point(1009, 11);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox5.Size = new System.Drawing.Size(188, 51);
+            this.groupBox5.TabIndex = 21;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Модель";
             // 
-            // addOutForm
+            // comboBoxModels
             // 
-            this.addOutForm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addOutForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addOutForm.Location = new System.Drawing.Point(104, 43);
-            this.addOutForm.Name = "addOutForm";
-            this.addOutForm.Size = new System.Drawing.Size(20, 20);
-            this.addOutForm.TabIndex = 32;
-            this.addOutForm.Text = "X";
-            this.addOutForm.UseVisualStyleBackColor = true;
-            this.addOutForm.Click += new System.EventHandler(this.addOutForm_Click);
+            this.comboBoxModels.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxModels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxModels.FormattingEnabled = true;
+            this.comboBoxModels.Items.AddRange(new object[] {
+            "MR6400v2",
+            "MR6400v4",
+            "LTE3202",
+            "MR600"});
+            this.comboBoxModels.Location = new System.Drawing.Point(4, 17);
+            this.comboBoxModels.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxModels.Name = "comboBoxModels";
+            this.comboBoxModels.Size = new System.Drawing.Size(79, 24);
+            this.comboBoxModels.TabIndex = 18;
+            // 
+            // OpenModelButton
+            // 
+            this.OpenModelButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenModelButton.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OpenModelButton.Location = new System.Drawing.Point(98, 17);
+            this.OpenModelButton.Name = "OpenModelButton";
+            this.OpenModelButton.Size = new System.Drawing.Size(75, 24);
+            this.OpenModelButton.TabIndex = 4;
+            this.OpenModelButton.Text = "Выбрать";
+            this.OpenModelButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 605);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControlAdd);
             this.Controls.Add(this.logTextBox);
             this.Controls.Add(this.label7);
@@ -589,7 +624,6 @@ namespace CefTest
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.debugButton);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.webBrowser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1262, 644);
@@ -608,6 +642,7 @@ namespace CefTest
             this.tabControlAdd.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,7 +653,6 @@ namespace CefTest
         private System.Windows.Forms.TextBox passwordDefBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button adressButton;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button debugButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -657,6 +691,9 @@ namespace CefTest
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ComboBox comboBoxDo;
         private System.Windows.Forms.Button addOutForm;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox comboBoxModels;
+        private System.Windows.Forms.Button OpenModelButton;
     }
 }
 

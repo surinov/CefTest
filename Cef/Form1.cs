@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
-using CefSharp.WinForms;
 
 namespace CefTest
 {
@@ -12,10 +10,12 @@ namespace CefTest
     public partial class Form1 : Form
     {
         public int AddIndex { get; set; } = 0;
-        public string mess { get; set; }
+        private string File = "mr6400v2.json";
         public Form1()
         {
             InitializeComponent();
+            /*0-mr6400v2 1-mr6400v4 2-lte3202 3-mr600*/
+            comboBoxModels.SelectedIndex = 0;
             comboBoxUrls.SelectedIndex = 2;
             comboBoxAdd.SelectedIndex = 3;
             comboBoxDo.SelectedIndex = 0;
@@ -25,14 +25,6 @@ namespace CefTest
         {
             webBrowser.Load(comboBoxUrls.SelectedItem.ToString());
             GetCursorPos();
-            //var l = new Log();
-            //l.Notify += L_Notify;
-        }
-
-        public async void L_Notify(string message)
-        {
-            await Task.Delay(10);
-            label2.Text = message;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,11 +37,30 @@ namespace CefTest
             return loginDefBox.Text == string.Empty || loginBox.Text == string.Empty || passwordDefBox.Text == string.Empty || 
                    passwordBox.Text == string.Empty;
         }
+        private string GetModel()
+        {
+            try
+            {
+                return $"{comboBoxModels.SelectedItem.ToString().ToLower()}.json";
+            }
+            catch
+            {
+                logTextBox.Text = "JSON не найден";
+                return null;
+            }
+        }
 
         private async void runButton_Click(object sender, EventArgs e)
         {
             if (!TextboxIsNull()) {
-                try{await MakeStep();}
+                try
+                {
+                    if (GetModel() != null)
+                    {
+                        File = GetModel();
+                        await MakeStep();
+                    }
+                }
                 catch { // ignored
                 }
             }
@@ -57,31 +68,31 @@ namespace CefTest
 
         public async Task MakeStep()
         {
-            var js = new JsonSteps(webBrowser,loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text);
-            label2.Text = $@"Log: {js.GetName()}";
+            var js = new JsonSteps(webBrowser,loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text,File);
+            logTextBox.Text = $@"Log: {js.GetName()}";
             js.SetDelay(500);
             webBrowser.Focus();
             if (checkAuth.Checked)
             {
                 await js.MakeLogin(false);
-                label2.Text += "\n- Login Есть.";
+                logTextBox.Text += "\n- Login Есть.";
             }
 
             if (checkWifi.Checked)
             {
                 await js.MakeWifi(false);
-                label2.Text += "\n- WiFi Есть.";
+                logTextBox.Text += "\n- WiFi Есть.";
             }
 
             if (checkAPN.Checked)
             {
                 await js.MakeApn(false);
-                label2.Text += "\n- APN Есть.";
+                logTextBox.Text += "\n- APN Есть.";
             }
             if (checkRemote.Checked)
             {
                 await js.MakeRemote(false);
-                label2.Text += "\n- Удаленный Есть.";
+                logTextBox.Text += "\n- Удаленный Есть.";
             }
         }
 
@@ -109,7 +120,7 @@ namespace CefTest
 
         private void debugButton_Click(object sender, EventArgs e)
         {
-            //ignored
+            logTextBox.Text += comboBoxModels.SelectedItem.ToString().ToLower();
         }
 
         private async void addButton_Click(object sender, EventArgs e)
@@ -144,7 +155,7 @@ namespace CefTest
             var text = addBoxText.Enabled? addBoxText.Text: null;
             var del = int.Parse(addBoxDel.Text);
             var count = addBoxCount.Enabled? int.Parse(addBoxCount.Text) : 0;
-            var jc = new JsonChange();
+            var jc = new JsonChange(GetModel());
             if (part == "login")
                 await jc.AddStepLogin(@do, x, y, text, count, AddIndex, del);
             if (part == "wifi")
@@ -166,14 +177,14 @@ namespace CefTest
                     addBoxY.Enabled = true;
                     addOutForm.Enabled = true;
                     addBoxCount.Enabled = false;
-                    addBoxDel.Enabled = false;
+                    addBoxDel.Enabled = true;
                     addBoxText.Enabled = false;
                     break;
                 case 1:
                     addBoxText.Enabled = true;
                     addBoxX.Enabled = false;
                     addBoxY.Enabled = false;
-                    addBoxDel.Enabled = false;
+                    addBoxDel.Enabled = true;
                     addBoxCount.Enabled = false;
                     addOutForm.Enabled = false;
                     break;
@@ -182,7 +193,7 @@ namespace CefTest
                     addBoxText.Enabled = false;
                     addBoxX.Enabled = false;
                     addBoxY.Enabled = false;
-                    addBoxDel.Enabled = false;
+                    addBoxDel.Enabled = true;
                     addOutForm.Enabled = false;
                     break;
             }

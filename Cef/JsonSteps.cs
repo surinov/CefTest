@@ -67,28 +67,30 @@ namespace CefTest
         private string _name;
         private int _delay;
         public Model _steps;
+        public string File;
         private readonly ChromiumWebBrowser _browser;
         private readonly string _login;
         private readonly string _password;
         private readonly string _setlogin;
         private readonly string _setpassword;
-        public string LastChangeResult { get; set; }
 
-        public JsonSteps(ChromiumWebBrowser browser, string login, string password, string setLogin, string setPassword)
+        public JsonSteps(ChromiumWebBrowser browser, string login, string password, string setLogin, string setPassword,string file)
         {
-            ParseJson();
             _delay = 1000;
             _browser = browser;
             _login = login;
             _password = password;
             _setlogin = setLogin;
             _setpassword = setPassword;
+            File = file;
+            ParseJson();
         }
 
-        public JsonSteps()
+        public JsonSteps(string file)
         {
-            ParseJson();
             _delay = 1000;
+            File = file;
+            ParseJson();
         }
 
         public string GetName() { return _name; }
@@ -96,7 +98,7 @@ namespace CefTest
         public void SetDelay(int delay) { _delay = delay; }
         private void ParseJson()
         {
-            var jsonString = File.ReadAllText("steps.json");
+            var jsonString = System.IO.File.ReadAllText(File);
             var restoredsteps = JsonConvert.DeserializeObject<Model>(jsonString);
             _steps = restoredsteps;
             _name = restoredsteps.name;

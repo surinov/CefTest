@@ -8,10 +8,12 @@ namespace CefTest
     class JsonChange
     {
         internal Model Steps;
+        public string _file;
         public string LastChangeResult { get; set; }
-        public JsonChange()
+        public JsonChange(string file)
         {
-            var js = new JsonSteps();
+            _file = file;
+            var js = new JsonSteps(_file);
             Steps = js._steps;
         }
         public async Task AddStepLogin(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
@@ -39,7 +41,7 @@ namespace CefTest
             }
 
             var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
-            File.WriteAllText("steps.json", output);
+            File.WriteAllText(_file, output);
         }
         public async Task AddStepWifi(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
@@ -66,7 +68,7 @@ namespace CefTest
             }
 
             var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
-            File.WriteAllText("steps.json", output);
+            File.WriteAllText(_file, output);
         }
         public async Task AddStepApn(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
@@ -93,7 +95,7 @@ namespace CefTest
             }
 
             var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
-            File.WriteAllText("steps.json", output);
+            File.WriteAllText(_file, output);
         }
         public async Task AddStepRemote(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
@@ -120,7 +122,7 @@ namespace CefTest
             }
 
             var output = await Task.Run(() => JsonConvert.SerializeObject(Steps, Formatting.Indented));
-            File.WriteAllText("steps.json", output);
+            File.WriteAllText(_file, output);
         }
     }
 }
