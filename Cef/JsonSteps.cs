@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
@@ -8,63 +6,10 @@ using Newtonsoft.Json;
 
 namespace CefTest
 {
-    public class Model
-    {
-        public string name { get; set; }
-        public Steps steps { get; set; }
-    }
-
-    public class Login
-    {
-        public string @do { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
-        public int? count { get; set; }
-        public string text { get; set; }
-        public int del { get; set; }
-    }
-
-    public class Wifi
-    {
-        public string @do { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
-        public int? count { get; set; }
-        public string text { get; set; }
-        public int del { get; set; }
-    }
-
-    public class Apn
-    {
-        public string @do { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
-        public int? count { get; set; }
-        public string text { get; set; }
-        public int del { get; set; }
-    }
-
-    public class Remote
-    {
-        public string @do { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
-        public int? count { get; set; }
-        public string text { get; set; }
-        public int del { get; set; }
-    }
-
-    public class Steps
-    {
-        public List<Login> login { get; set; }
-        public List<Wifi> wifi { get; set; }
-        public List<Apn> apn { get; set; }
-        public List<Remote> remote { get; set; }
-    }
-
     public class JsonSteps
     {
         private string _name;
+        private string _route;
         private int _delay;
         public Model _steps;
         public string File;
@@ -94,6 +39,7 @@ namespace CefTest
         }
 
         public string GetName() { return _name; }
+        public string GetRoute() { return _route; }
 
         public void SetDelay(int delay) { _delay = delay; }
         private void ParseJson()
@@ -102,6 +48,7 @@ namespace CefTest
             var restoredsteps = JsonConvert.DeserializeObject<Model>(jsonString);
             _steps = restoredsteps;
             _name = restoredsteps.name;
+            _route = restoredsteps.route;
         }
 
         public async Task MakeLogin(bool onJsonDelay)

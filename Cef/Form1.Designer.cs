@@ -78,6 +78,9 @@ namespace CefTest
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.comboBoxModels = new System.Windows.Forms.ComboBox();
             this.OpenModelButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.RefreshModelsButton = new System.Windows.Forms.Button();
+            this.pathLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -349,11 +352,11 @@ namespace CefTest
             this.groupBox4.Controls.Add(this.comboBoxUrls);
             this.groupBox4.Controls.Add(this.adressButton);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(1009, 67);
+            this.groupBox4.Location = new System.Drawing.Point(1009, 119);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(188, 81);
+            this.groupBox4.Size = new System.Drawing.Size(188, 29);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Веб адрес";
@@ -570,6 +573,8 @@ namespace CefTest
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.pathLabel);
+            this.groupBox5.Controls.Add(this.RefreshModelsButton);
             this.groupBox5.Controls.Add(this.comboBoxModels);
             this.groupBox5.Controls.Add(this.OpenModelButton);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -577,7 +582,7 @@ namespace CefTest
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox5.Size = new System.Drawing.Size(188, 51);
+            this.groupBox5.Size = new System.Drawing.Size(242, 77);
             this.groupBox5.TabIndex = 21;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Модель";
@@ -602,18 +607,49 @@ namespace CefTest
             // 
             this.OpenModelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenModelButton.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OpenModelButton.Location = new System.Drawing.Point(98, 17);
+            this.OpenModelButton.Location = new System.Drawing.Point(157, 17);
             this.OpenModelButton.Name = "OpenModelButton";
-            this.OpenModelButton.Size = new System.Drawing.Size(75, 24);
+            this.OpenModelButton.Size = new System.Drawing.Size(76, 24);
             this.OpenModelButton.TabIndex = 4;
             this.OpenModelButton.Text = "Выбрать";
             this.OpenModelButton.UseVisualStyleBackColor = true;
+            this.OpenModelButton.Click += new System.EventHandler(this.OpenModelButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1027, 486);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // RefreshModelsButton
+            // 
+            this.RefreshModelsButton.Location = new System.Drawing.Point(94, 17);
+            this.RefreshModelsButton.Name = "RefreshModelsButton";
+            this.RefreshModelsButton.Size = new System.Drawing.Size(25, 25);
+            this.RefreshModelsButton.TabIndex = 19;
+            this.RefreshModelsButton.Text = "R";
+            this.RefreshModelsButton.UseVisualStyleBackColor = true;
+            this.RefreshModelsButton.Click += new System.EventHandler(this.RefreshModelsButton_Click);
+            // 
+            // pathLabel
+            // 
+            this.pathLabel.AutoSize = true;
+            this.pathLabel.Location = new System.Drawing.Point(5, 52);
+            this.pathLabel.Name = "pathLabel";
+            this.pathLabel.Size = new System.Drawing.Size(37, 16);
+            this.pathLabel.TabIndex = 33;
+            this.pathLabel.Text = "Путь:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 605);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControlAdd);
             this.Controls.Add(this.logTextBox);
@@ -643,6 +679,7 @@ namespace CefTest
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -694,6 +731,9 @@ namespace CefTest
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox comboBoxModels;
         private System.Windows.Forms.Button OpenModelButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RefreshModelsButton;
+        private System.Windows.Forms.Label pathLabel;
     }
 }
 
