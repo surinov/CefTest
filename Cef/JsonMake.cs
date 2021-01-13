@@ -7,31 +7,31 @@ namespace CefTest
     class JsonMake
     {
         internal Model model;
-        public string _file;
+        public string _path;
         public string LastChangeResult { get; set; }
 
-        public JsonMake(string file)
+        public JsonMake(string path)
         {
-            _file = file;
+            _path = path;
         }
 
         public async Task MakeJson(string name,string route)
         {
-            const string jsonString = "{'name': 'exmpl name','route': 'exmpl route', 'steps': { 'login': [], 'wifi': [], 'apn': [], 'remote': [] } }";
+            const string jsonString = "{'name':'exmpl name','route':'exmpl route','steps':{'login':[],'wifi':[],'apn':[],'remote':[]}}";
             var restoredsteps = JsonConvert.DeserializeObject<Model>(jsonString);
             model = restoredsteps;
 
             model.name = name;
             model.route = route;
-            //model.steps.login.Clear();
-            //model.steps.wifi.Clear();
-            //model.steps.apn.Clear();
-            //model.steps.remote.Clear();
             LastChangeResult += $"Создан {model.name}\n";
             
-
             var output = await Task.Run(() => JsonConvert.SerializeObject(model, Formatting.Indented));
-            File.WriteAllText("test.json", output);
+            File.WriteAllText($"{_path}{model.name}.json", output);
+        }
+
+        public void DeleteJson(string name)
+        {
+            File.Delete($"{_path}{name}");
         }
     }
 }

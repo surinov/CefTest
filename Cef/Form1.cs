@@ -7,16 +7,17 @@ using CefSharp;
 
 namespace CefTest
 {
-    public delegate void MyDelegate(int x,int y);
+    public delegate void SetCoordinates(int x,int y);
+    public delegate void AddFileName(string name, string route);
     public partial class Form1 : Form
     {
         public int AddIndex { get; set; } = 0;
-        private string _path { get; set; }
-        private string File = "mr6400v2.json";
-        private string tFile = "mr6400v2.json";
+        private string _path { get; set; } = Directory.GetCurrentDirectory();
+        private string _file = "mr6400v2.json";
         public Form1()
         {
             InitializeComponent();
+            RefreshModelsList();
             /*0-mr6400v2 1-mr6400v4 2-lte3202 3-mr600*/
             comboBoxModels.SelectedIndex = 0;
             comboBoxUrls.SelectedIndex = 2;
@@ -40,13 +41,13 @@ namespace CefTest
             return loginDefBox.Text == string.Empty || loginBox.Text == string.Empty || passwordDefBox.Text == string.Empty || 
                    passwordBox.Text == string.Empty;
         }
-        private string GetModel()
+        private string GetModelName()
         {
             try
             {
-                logTextBox.Text = comboBoxModels.SelectedItem.ToString().ToLower();
-                return comboBoxModels.SelectedItem.ToString().ToLower();
-                
+                var model = comboBoxModels.SelectedItem.ToString().ToLower().Replace("\n", "");
+                logTextBox.Text = model;
+                return model;
             }
             catch
             {
@@ -60,10 +61,10 @@ namespace CefTest
             if (!TextboxIsNull()) {
                 try
                 {
-                    if (GetModel() != null)
+                    if (GetModelName() != null)
                     {
-                        File = GetModel();
-                        logTextBox.Text = comboBoxModels.SelectedItem.ToString().ToLower();
+                        _file = GetModelName();
+                        logTextBox.Text = GetModelName();
                         await MakeStep();
                     }
                 }
@@ -74,7 +75,7 @@ namespace CefTest
 
         public async Task MakeStep()
         {
-            var js = new JsonSteps(webBrowser,loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text,tFile);
+            var js = new JsonSteps(webBrowser,loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text,_file);
             logTextBox.Text = $@"Log: {js.GetName()} {js.GetRoute()}";
             js.SetDelay(500);
             webBrowser.Focus();
@@ -124,12 +125,6 @@ namespace CefTest
             webBrowser.Load(comboBoxUrls.SelectedItem.ToString());
         }
 
-        private async void debugButton_Click(object sender, EventArgs e)
-        {
-            var jm = new JsonMake("f");
-            await jm.MakeJson("My Name","192.168.1,1");
-            logTextBox.Text += jm.LastChangeResult;
-        }
 
         private async void addButton_Click(object sender, EventArgs e)
         {
@@ -163,7 +158,7 @@ namespace CefTest
             var text = addBoxText.Enabled? addBoxText.Text: null;
             var del = int.Parse(addBoxDel.Text);
             var count = addBoxCount.Enabled? int.Parse(addBoxCount.Text) : 0;
-            var jc = new JsonChange(GetModel());
+            var jc = new JsonChange(GetModelName());
             if (part == "login")
                 await jc.AddStepLogin(@do, x, y, text, count, AddIndex, del);
             if (part == "wifi")
@@ -217,34 +212,58 @@ namespace CefTest
                     Screen.PrimaryScreen.Bounds.Size.Width - 100);
                 g.CopyFromScreen(0, 25, 0, 0,
                     Screen.PrimaryScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
-                var newForm = new Form2(bmp, Add);
+                var newForm = new Form2(bmp, AddCoord);
                 newForm.Show();
             }
             catch
             { // ignored
             }
         }
-        private void Add(int x, int y)
+        private void AddCoord(int x, int y)
         {
             addBoxX.Text = x.ToString();
             addBoxY.Text = y.ToString();
         }
+        private void makeFileButton_Click(object sender, EventArgs e)
+        {
+            var newForm = new Form3(AddNameRoute);
+            newForm.Show();
+        }
+        private async void AddNameRoute(string name,string route)
+        {
+            var jm = new JsonMake("");
+            await jm.MakeJson(name, route);
+            logTextBox.Text += jm.LastChangeResult;
+        }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var jc = new JsonChange("test.json");
+            var jc = new JsonChange(GetModelName());
             await jc.AddStepWifi("input", 0, 0, "hello", 14, 5, 300);
         }
 
         private void RefreshModelsButton_Click(object sender, EventArgs e)
         {
-            var f = Directory.GetFiles(_path, "*.json");
+            RefreshModelsList();
+        }
+
+        private void RefreshModelsList()
+        {
+            comboBoxModels.Items.Clear();
+            var path = _path ?? Directory.GetCurrentDirectory();
+            var f = Directory.GetFiles(path, "*.json");
             foreach (var p in f)
             {
                 comboBoxModels.Items.Add($"{Path.GetFileName(p)}\n");
             }
-        }
 
+            try
+            {
+                comboBoxModels.SelectedIndex = 0;
+            }
+            catch {//ignored
+            }
+        }
         private void OpenModelButton_Click(object sender, EventArgs e)
         {
             var fbd = new FolderBrowserDialog();
