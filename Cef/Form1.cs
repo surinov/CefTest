@@ -2,9 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -70,10 +68,7 @@ namespace CefTest
                     logTextBox.Text = GetModelName();
                     await MakeStep();
                 }
-                catch
-                {
-                    logTextBox.Text += "Что-то пошло не так";
-                }
+                catch { logTextBox.Text += @"Что-то пошло не так"; }
             }
         }
 
@@ -121,9 +116,7 @@ namespace CefTest
                     else label3.Text = "";
                 }
             }
-            catch
-            {// ignored
-            }
+            catch { logTextBox.Text += @"Что-то пошло не так"; }
         }
 
         private void adressButton_Click(object sender, EventArgs e)
@@ -152,9 +145,7 @@ namespace CefTest
                         break;
                 }
             }
-            catch
-            { //ignored
-            }
+            catch { logTextBox.Text += @"Что-то пошло не так"; }
         }
 
         private async Task ChangeStep(string part)
@@ -223,15 +214,12 @@ namespace CefTest
             try
             {
                 var bmp = new Bitmap(webBrowser.Width, webBrowser.Height);
-                var g = Graphics.FromImage(bmp);
-                g.CopyFromScreen(webBrowser.PointToScreen(Point.Empty).X, webBrowser.PointToScreen(Point.Empty).Y, 0, 0, 
+                Graphics.FromImage(bmp).CopyFromScreen(webBrowser.PointToScreen(Point.Empty).X, webBrowser.PointToScreen(Point.Empty).Y, 0, 0, 
                     new Size(webBrowser.Width, webBrowser.Height));
                 var newForm = new Form2(bmp, AddCoord);
                 newForm.Show();
             }
-            catch
-            { // ignored
-            }
+            catch { logTextBox.Text += @"Что-то пошло не так"; }
         }
         private void AddCoord(int x, int y)
         {
@@ -287,9 +275,7 @@ namespace CefTest
             {
                 comboBoxModels.SelectedIndex = 0;
             }
-            catch
-            {//ignored
-            }
+            catch { logTextBox.Text += @"Что-то пошло не так"; }
         }
         private void OpenModelButton_Click(object sender, EventArgs e)
         {
