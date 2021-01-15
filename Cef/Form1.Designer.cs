@@ -104,7 +104,7 @@ namespace CefTest
             // 
             this.runButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.runButton.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.runButton.Location = new System.Drawing.Point(27, 108);
+            this.runButton.Location = new System.Drawing.Point(30, 119);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(75, 26);
             this.runButton.TabIndex = 1;

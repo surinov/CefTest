@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,7 +24,7 @@ namespace CefTest
             RefreshModelsList();
             /*0-mr6400v2 1-mr6400v4 2-lte3202 3-mr600*/
             comboBoxModels.SelectedIndex = 0;
-            comboBoxUrls.SelectedIndex = 3;
+            comboBoxUrls.SelectedIndex = 2;
             comboBoxAdd.SelectedIndex = 0;
             comboBoxDo.SelectedIndex = 0;
             groupBox1.Visible = false;
@@ -220,12 +222,10 @@ namespace CefTest
         {
             try
             {
-                var bmp = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+                var bmp = new Bitmap(webBrowser.Width, webBrowser.Height);
                 var g = Graphics.FromImage(bmp);
-                var size = new Size(Screen.PrimaryScreen.Bounds.Size.Height - 100,
-                    Screen.PrimaryScreen.Bounds.Size.Width - 100);
-                g.CopyFromScreen(0, 25, 0, 0,
-                    Screen.PrimaryScreen.Bounds.Size, CopyPixelOperation.SourceCopy);
+                g.CopyFromScreen(webBrowser.PointToScreen(Point.Empty).X, webBrowser.PointToScreen(Point.Empty).Y, 0, 0, 
+                    new Size(webBrowser.Width, webBrowser.Height));
                 var newForm = new Form2(bmp, AddCoord);
                 newForm.Show();
             }
