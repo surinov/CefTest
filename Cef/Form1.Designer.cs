@@ -97,7 +97,7 @@ namespace CefTest
             this.webBrowser.Location = new System.Drawing.Point(1, 1);
             this.webBrowser.Margin = new System.Windows.Forms.Padding(1);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(1000, 589);
+            this.webBrowser.Size = new System.Drawing.Size(1024, 589);
             this.webBrowser.TabIndex = 0;
             // 
             // runButton
@@ -115,7 +115,7 @@ namespace CefTest
             // passwordDefBox
             // 
             this.passwordDefBox.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passwordDefBox.Location = new System.Drawing.Point(5, 94);
+            this.passwordDefBox.Location = new System.Drawing.Point(5, 109);
             this.passwordDefBox.Name = "passwordDefBox";
             this.passwordDefBox.Size = new System.Drawing.Size(100, 24);
             this.passwordDefBox.TabIndex = 2;
@@ -125,7 +125,7 @@ namespace CefTest
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(5, 72);
+            this.label1.Location = new System.Drawing.Point(2, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 3;
@@ -169,7 +169,7 @@ namespace CefTest
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(5, 23);
+            this.label4.Location = new System.Drawing.Point(2, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 10;
@@ -178,7 +178,7 @@ namespace CefTest
             // loginDefBox
             // 
             this.loginDefBox.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginDefBox.Location = new System.Drawing.Point(5, 45);
+            this.loginDefBox.Location = new System.Drawing.Point(4, 63);
             this.loginDefBox.Name = "loginDefBox";
             this.loginDefBox.Size = new System.Drawing.Size(100, 24);
             this.loginDefBox.TabIndex = 11;
@@ -231,11 +231,11 @@ namespace CefTest
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.loginDefBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(1009, 125);
+            this.groupBox1.Location = new System.Drawing.Point(1029, 236);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(110, 138);
+            this.groupBox1.Size = new System.Drawing.Size(110, 22);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Войти:";
@@ -248,7 +248,7 @@ namespace CefTest
             this.groupBox2.Controls.Add(this.loginBox);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(1137, 125);
+            this.groupBox2.Location = new System.Drawing.Point(1157, 120);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -265,11 +265,12 @@ namespace CefTest
             this.comboBoxUrls.Items.AddRange(new object[] {
             "http://192.168.1.1/",
             "http://192.168.0.1/",
-            "https://emulator.tp-link.com/TL-MR6400(EU)_V2_new/userRpm/Index.htm"});
+            "https://emulator.tp-link.com/TL-MR6400(EU)_V2_new/userRpm/Index.htm",
+            "https://emulator.tp-link.com/mr6400-v4/index.htm"});
             this.comboBoxUrls.Location = new System.Drawing.Point(4, 17);
             this.comboBoxUrls.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxUrls.Name = "comboBoxUrls";
-            this.comboBoxUrls.Size = new System.Drawing.Size(180, 24);
+            this.comboBoxUrls.Size = new System.Drawing.Size(118, 24);
             this.comboBoxUrls.TabIndex = 18;
             // 
             // checkRemote
@@ -337,11 +338,11 @@ namespace CefTest
             this.groupBox4.Controls.Add(this.comboBoxUrls);
             this.groupBox4.Controls.Add(this.adressButton);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(1009, 92);
+            this.groupBox4.Location = new System.Drawing.Point(1029, 120);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox4.Size = new System.Drawing.Size(188, 29);
+            this.groupBox4.Size = new System.Drawing.Size(128, 85);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Веб адрес";
@@ -357,9 +358,9 @@ namespace CefTest
             // 
             // logTextBox
             // 
-            this.logTextBox.Location = new System.Drawing.Point(1009, 533);
+            this.logTextBox.Location = new System.Drawing.Point(1034, 528);
             this.logTextBox.Name = "logTextBox";
-            this.logTextBox.Size = new System.Drawing.Size(251, 82);
+            this.logTextBox.Size = new System.Drawing.Size(242, 82);
             this.logTextBox.TabIndex = 22;
             this.logTextBox.Text = "";
             // 
@@ -367,7 +368,7 @@ namespace CefTest
             // 
             this.tabControlAdd.Controls.Add(this.tabPage1);
             this.tabControlAdd.Controls.Add(this.tabPage2);
-            this.tabControlAdd.Location = new System.Drawing.Point(1009, 268);
+            this.tabControlAdd.Location = new System.Drawing.Point(1029, 263);
             this.tabControlAdd.Name = "tabControlAdd";
             this.tabControlAdd.SelectedIndex = 0;
             this.tabControlAdd.Size = new System.Drawing.Size(251, 259);
@@ -580,7 +581,7 @@ namespace CefTest
             this.groupBox5.Controls.Add(this.comboBoxModels);
             this.groupBox5.Controls.Add(this.OpenModelButton);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox5.Location = new System.Drawing.Point(1009, 11);
+            this.groupBox5.Location = new System.Drawing.Point(1029, 6);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
@@ -667,7 +668,7 @@ namespace CefTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1263, 618);
+            this.ClientSize = new System.Drawing.Size(1287, 618);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControlAdd);
             this.Controls.Add(this.logTextBox);
@@ -682,7 +683,6 @@ namespace CefTest
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Automation tool";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

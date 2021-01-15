@@ -22,9 +22,10 @@ namespace CefTest
             RefreshModelsList();
             /*0-mr6400v2 1-mr6400v4 2-lte3202 3-mr600*/
             comboBoxModels.SelectedIndex = 0;
-            comboBoxUrls.SelectedIndex = 2;
+            comboBoxUrls.SelectedIndex = 3;
             comboBoxAdd.SelectedIndex = 0;
             comboBoxDo.SelectedIndex = 0;
+            groupBox1.Visible = false;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -114,7 +115,8 @@ namespace CefTest
                     var cX = point.X;
                     var cY = point.Y;
                     await Task.Delay(10);
-                    label3.Text = @"X: " + cX + ", Y: " + cY;
+                    if(cX < 1025 && cY < 590) label3.Text = @"X: " + cX + ", Y: " + cY;
+                    else label3.Text = "";
                 }
             }
             catch
@@ -257,7 +259,7 @@ namespace CefTest
         private void OpenInputForm_Click(object sender, EventArgs e)
         {
             var standartInput = new List<string>() { "admin", "password" };
-            var newInput = new List<string>() { "lte123", "77218" };
+            var newInput = new List<string>() { "_login", "_pass" };
             var newForm = new Form4(standartInput, newInput, AddInput);
             newForm.Show();
         }
