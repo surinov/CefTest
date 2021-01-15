@@ -34,7 +34,7 @@ namespace CefTest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _setCoor(_x,_y);
+            _setCoor(_x, _y);
             Close();
         }
     }

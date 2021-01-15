@@ -59,10 +59,9 @@ namespace CefTest
             this.tabControlAdd = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.addOutForm = new System.Windows.Forms.Button();
             this.comboBoxDo = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.labelCount = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -80,6 +79,9 @@ namespace CefTest
             this.RefreshModelsButton = new System.Windows.Forms.Button();
             this.comboBoxModels = new System.Windows.Forms.ComboBox();
             this.OpenModelButton = new System.Windows.Forms.Button();
+            this.deleteFileButton = new System.Windows.Forms.Button();
+            this.OpenInputForm = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -106,7 +108,7 @@ namespace CefTest
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(75, 26);
             this.runButton.TabIndex = 1;
-            this.runButton.Text = "Run";
+            this.runButton.Text = "Запуск";
             this.runButton.UseVisualStyleBackColor = true;
             this.runButton.Click += new System.EventHandler(this.runButton_Click);
             // 
@@ -144,9 +146,9 @@ namespace CefTest
             // makeFileButton
             // 
             this.makeFileButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.makeFileButton.Location = new System.Drawing.Point(153, 58);
+            this.makeFileButton.Location = new System.Drawing.Point(178, 6);
             this.makeFileButton.Name = "makeFileButton";
-            this.makeFileButton.Size = new System.Drawing.Size(75, 46);
+            this.makeFileButton.Size = new System.Drawing.Size(59, 36);
             this.makeFileButton.TabIndex = 8;
             this.makeFileButton.Text = "Создать файл";
             this.makeFileButton.UseVisualStyleBackColor = true;
@@ -159,9 +161,9 @@ namespace CefTest
             this.label3.Location = new System.Drawing.Point(880, 591);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "lable3";
+            this.label3.Text = "coord";
             // 
             // label4
             // 
@@ -229,7 +231,7 @@ namespace CefTest
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.loginDefBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(1009, 152);
+            this.groupBox1.Location = new System.Drawing.Point(1009, 125);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -246,7 +248,7 @@ namespace CefTest
             this.groupBox2.Controls.Add(this.loginBox);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(1137, 152);
+            this.groupBox2.Location = new System.Drawing.Point(1137, 125);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -325,9 +327,9 @@ namespace CefTest
             this.checkAuth.Location = new System.Drawing.Point(16, 5);
             this.checkAuth.Margin = new System.Windows.Forms.Padding(2);
             this.checkAuth.Name = "checkAuth";
-            this.checkAuth.Size = new System.Drawing.Size(98, 20);
+            this.checkAuth.Size = new System.Drawing.Size(54, 20);
             this.checkAuth.TabIndex = 0;
-            this.checkAuth.Text = "Авторизация";
+            this.checkAuth.Text = "Вход";
             this.checkAuth.UseVisualStyleBackColor = true;
             // 
             // groupBox4
@@ -335,7 +337,7 @@ namespace CefTest
             this.groupBox4.Controls.Add(this.comboBoxUrls);
             this.groupBox4.Controls.Add(this.adressButton);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(1009, 119);
+            this.groupBox4.Location = new System.Drawing.Point(1009, 92);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -355,7 +357,7 @@ namespace CefTest
             // 
             // logTextBox
             // 
-            this.logTextBox.Location = new System.Drawing.Point(1009, 522);
+            this.logTextBox.Location = new System.Drawing.Point(1009, 533);
             this.logTextBox.Name = "logTextBox";
             this.logTextBox.Size = new System.Drawing.Size(251, 82);
             this.logTextBox.TabIndex = 22;
@@ -365,10 +367,10 @@ namespace CefTest
             // 
             this.tabControlAdd.Controls.Add(this.tabPage1);
             this.tabControlAdd.Controls.Add(this.tabPage2);
-            this.tabControlAdd.Location = new System.Drawing.Point(1009, 295);
+            this.tabControlAdd.Location = new System.Drawing.Point(1009, 268);
             this.tabControlAdd.Name = "tabControlAdd";
             this.tabControlAdd.SelectedIndex = 0;
-            this.tabControlAdd.Size = new System.Drawing.Size(242, 221);
+            this.tabControlAdd.Size = new System.Drawing.Size(251, 259);
             this.tabControlAdd.TabIndex = 31;
             // 
             // tabPage1
@@ -382,17 +384,19 @@ namespace CefTest
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(234, 195);
+            this.tabPage1.Size = new System.Drawing.Size(243, 233);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Выполнить";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.OpenInputForm);
+            this.tabPage2.Controls.Add(this.deleteFileButton);
             this.tabPage2.Controls.Add(this.addOutForm);
             this.tabPage2.Controls.Add(this.comboBoxDo);
-            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.labelCount);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label10);
@@ -409,26 +413,16 @@ namespace CefTest
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(234, 195);
+            this.tabPage2.Size = new System.Drawing.Size(243, 233);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Редактировать";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(153, 124);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "change";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // addOutForm
             // 
             this.addOutForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addOutForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addOutForm.Location = new System.Drawing.Point(103, 44);
+            this.addOutForm.Location = new System.Drawing.Point(114, 84);
             this.addOutForm.Name = "addOutForm";
             this.addOutForm.Size = new System.Drawing.Size(20, 20);
             this.addOutForm.TabIndex = 46;
@@ -445,53 +439,56 @@ namespace CefTest
             "click",
             "input",
             "delete"});
-            this.comboBoxDo.Location = new System.Drawing.Point(5, 83);
+            this.comboBoxDo.Location = new System.Drawing.Point(6, 59);
             this.comboBoxDo.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxDo.Name = "comboBoxDo";
-            this.comboBoxDo.Size = new System.Drawing.Size(45, 21);
+            this.comboBoxDo.Size = new System.Drawing.Size(48, 21);
             this.comboBoxDo.TabIndex = 53;
             this.comboBoxDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxDo_SelectedIndexChanged);
             // 
-            // label13
+            // labelCount
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(52, 110);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 13);
-            this.label13.TabIndex = 52;
-            this.label13.Text = "Count";
+            this.labelCount.AutoSize = true;
+            this.labelCount.Location = new System.Drawing.Point(60, 62);
+            this.labelCount.Margin = new System.Windows.Forms.Padding(1);
+            this.labelCount.Name = "labelCount";
+            this.labelCount.Size = new System.Drawing.Size(41, 13);
+            this.labelCount.TabIndex = 52;
+            this.labelCount.Text = "Кол-во";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 110);
+            this.label12.Location = new System.Drawing.Point(6, 152);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(23, 13);
+            this.label12.Size = new System.Drawing.Size(61, 13);
             this.label12.TabIndex = 51;
-            this.label12.Text = "Del";
+            this.label12.Text = "Задержка:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(52, 68);
+            this.label11.Location = new System.Drawing.Point(6, 120);
+            this.label11.Margin = new System.Windows.Forms.Padding(1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 13);
+            this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 50;
-            this.label11.Text = "Text";
+            this.label11.Text = "Текст:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 68);
+            this.label10.Location = new System.Drawing.Point(3, 44);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 13);
+            this.label10.Size = new System.Drawing.Size(49, 13);
             this.label10.TabIndex = 49;
-            this.label10.Text = "Do";
+            this.label10.Text = "Сделать";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(52, 28);
+            this.label9.Location = new System.Drawing.Point(59, 87);
+            this.label9.Margin = new System.Windows.Forms.Padding(1);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 48;
@@ -500,7 +497,8 @@ namespace CefTest
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 28);
+            this.label8.Location = new System.Drawing.Point(6, 87);
+            this.label8.Margin = new System.Windows.Forms.Padding(1);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(14, 13);
             this.label8.TabIndex = 47;
@@ -512,63 +510,66 @@ namespace CefTest
             this.comboBoxAdd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxAdd.FormattingEnabled = true;
             this.comboBoxAdd.Items.AddRange(new object[] {
-            "login",
-            "wifi",
-            "apn",
-            "remote"});
-            this.comboBoxAdd.Location = new System.Drawing.Point(5, 6);
+            "Вход",
+            "Сеть wi-fi",
+            "APN профиль",
+            "Удаленный"});
+            this.comboBoxAdd.Location = new System.Drawing.Point(5, 21);
             this.comboBoxAdd.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxAdd.Name = "comboBoxAdd";
-            this.comboBoxAdd.Size = new System.Drawing.Size(104, 21);
+            this.comboBoxAdd.Size = new System.Drawing.Size(119, 21);
             this.comboBoxAdd.TabIndex = 45;
             // 
             // addBoxX
             // 
-            this.addBoxX.Location = new System.Drawing.Point(5, 44);
+            this.addBoxX.Location = new System.Drawing.Point(22, 84);
+            this.addBoxX.Margin = new System.Windows.Forms.Padding(1);
             this.addBoxX.Name = "addBoxX";
-            this.addBoxX.Size = new System.Drawing.Size(45, 20);
+            this.addBoxX.Size = new System.Drawing.Size(35, 20);
             this.addBoxX.TabIndex = 39;
             this.addBoxX.Text = "500";
             // 
             // addBoxY
             // 
-            this.addBoxY.Location = new System.Drawing.Point(55, 44);
+            this.addBoxY.Location = new System.Drawing.Point(75, 84);
+            this.addBoxY.Margin = new System.Windows.Forms.Padding(1);
             this.addBoxY.Name = "addBoxY";
-            this.addBoxY.Size = new System.Drawing.Size(45, 20);
+            this.addBoxY.Size = new System.Drawing.Size(35, 20);
             this.addBoxY.TabIndex = 40;
             this.addBoxY.Text = "500";
             // 
             // addBoxCount
             // 
-            this.addBoxCount.Location = new System.Drawing.Point(55, 126);
+            this.addBoxCount.Location = new System.Drawing.Point(103, 59);
+            this.addBoxCount.Margin = new System.Windows.Forms.Padding(1);
             this.addBoxCount.Name = "addBoxCount";
-            this.addBoxCount.Size = new System.Drawing.Size(45, 20);
+            this.addBoxCount.Size = new System.Drawing.Size(30, 20);
             this.addBoxCount.TabIndex = 44;
             this.addBoxCount.Text = "14";
             // 
             // addBoxText
             // 
-            this.addBoxText.Location = new System.Drawing.Point(55, 84);
+            this.addBoxText.Location = new System.Drawing.Point(47, 117);
             this.addBoxText.Name = "addBoxText";
-            this.addBoxText.Size = new System.Drawing.Size(45, 20);
+            this.addBoxText.Size = new System.Drawing.Size(63, 20);
             this.addBoxText.TabIndex = 41;
             this.addBoxText.Text = "helloW";
             // 
             // addBoxDel
             // 
-            this.addBoxDel.Location = new System.Drawing.Point(5, 126);
+            this.addBoxDel.Location = new System.Drawing.Point(70, 149);
             this.addBoxDel.Name = "addBoxDel";
-            this.addBoxDel.Size = new System.Drawing.Size(45, 20);
+            this.addBoxDel.Size = new System.Drawing.Size(40, 20);
             this.addBoxDel.TabIndex = 43;
             this.addBoxDel.Text = "500";
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(21, 152);
+            this.addButton.Location = new System.Drawing.Point(31, 193);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 42;
-            this.addButton.Text = "Add";
+            this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
@@ -630,11 +631,43 @@ namespace CefTest
             this.OpenModelButton.UseVisualStyleBackColor = true;
             this.OpenModelButton.Click += new System.EventHandler(this.OpenModelButton_Click);
             // 
+            // deleteFileButton
+            // 
+            this.deleteFileButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deleteFileButton.Location = new System.Drawing.Point(178, 48);
+            this.deleteFileButton.Name = "deleteFileButton";
+            this.deleteFileButton.Size = new System.Drawing.Size(59, 36);
+            this.deleteFileButton.TabIndex = 54;
+            this.deleteFileButton.Text = "Удалить файл";
+            this.deleteFileButton.UseVisualStyleBackColor = true;
+            this.deleteFileButton.Click += new System.EventHandler(this.deleteFileButton_Click);
+            // 
+            // OpenInputForm
+            // 
+            this.OpenInputForm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OpenInputForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.OpenInputForm.Location = new System.Drawing.Point(114, 117);
+            this.OpenInputForm.Name = "OpenInputForm";
+            this.OpenInputForm.Size = new System.Drawing.Size(20, 20);
+            this.OpenInputForm.TabIndex = 55;
+            this.OpenInputForm.Text = "X";
+            this.OpenInputForm.UseVisualStyleBackColor = true;
+            this.OpenInputForm.Click += new System.EventHandler(this.OpenInputForm_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Раздел";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1263, 605);
+            this.ClientSize = new System.Drawing.Size(1263, 618);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControlAdd);
             this.Controls.Add(this.logTextBox);
@@ -648,7 +681,7 @@ namespace CefTest
             this.MinimumSize = new System.Drawing.Size(1262, 644);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Router Configuration";
+            this.Text = "Automation tool";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
@@ -698,12 +731,11 @@ namespace CefTest
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.ComboBox comboBoxModels;
         private System.Windows.Forms.Button OpenModelButton;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button RefreshModelsButton;
         private System.Windows.Forms.Label pathLabel;
         private System.Windows.Forms.Button addOutForm;
         private System.Windows.Forms.ComboBox comboBoxDo;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -716,6 +748,9 @@ namespace CefTest
         private System.Windows.Forms.TextBox addBoxText;
         private System.Windows.Forms.TextBox addBoxDel;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button deleteFileButton;
+        private System.Windows.Forms.Button OpenInputForm;
+        private System.Windows.Forms.Label label2;
     }
 }
 

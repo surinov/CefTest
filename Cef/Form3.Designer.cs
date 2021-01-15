@@ -39,6 +39,9 @@ namespace CefTest
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.logLabel = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +79,7 @@ namespace CefTest
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(117, 149);
+            this.button1.Location = new System.Drawing.Point(117, 222);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 29);
             this.button1.TabIndex = 3;
@@ -130,16 +133,48 @@ namespace CefTest
             // logLabel
             // 
             this.logLabel.AutoSize = true;
-            this.logLabel.Location = new System.Drawing.Point(12, 157);
+            this.logLabel.Location = new System.Drawing.Point(21, 157);
             this.logLabel.Name = "logLabel";
             this.logLabel.Size = new System.Drawing.Size(0, 13);
             this.logLabel.TabIndex = 8;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(21, 137);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(158, 17);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Логин и пароль для входа";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(47, 157);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(132, 20);
+            this.textBox1.TabIndex = 11;
+            this.textBox1.Text = "admin";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(47, 189);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(1);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(132, 20);
+            this.textBox2.TabIndex = 12;
+            this.textBox2.Text = "admin";
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(207, 187);
+            this.ClientSize = new System.Drawing.Size(208, 259);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.logLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
@@ -169,5 +204,8 @@ namespace CefTest
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label logLabel;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

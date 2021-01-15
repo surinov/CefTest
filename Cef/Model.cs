@@ -6,6 +6,8 @@ namespace CefTest
     {
         public string name { get; set; }
         public string route { get; set; }
+        public string defLogin { get; set; }
+        public string defPass { get; set; }
         public Steps steps { get; set; }
     }
 

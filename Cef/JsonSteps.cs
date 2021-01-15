@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Forms;
-using CefSharp;
+﻿using CefSharp;
 using CefSharp.WinForms;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CefTest
 {
@@ -11,7 +11,7 @@ namespace CefTest
         private string _name;
         private string _route;
         private int _delay;
-        public Model _steps;
+        public Model _model;
         public string _file;
         private readonly ChromiumWebBrowser _browser;
         private readonly string _login;
@@ -19,7 +19,7 @@ namespace CefTest
         private readonly string _setlogin;
         private readonly string _setpassword;
 
-        public JsonSteps(ChromiumWebBrowser browser, string login, string password, string setLogin, string setPassword,string file)
+        public JsonSteps(ChromiumWebBrowser browser, string login, string password, string setLogin, string setPassword, string file)
         {
             _delay = 1000;
             _browser = browser;
@@ -46,14 +46,14 @@ namespace CefTest
         {
             var jsonString = System.IO.File.ReadAllText(_file);
             var restoredsteps = JsonConvert.DeserializeObject<Model>(jsonString);
-            _steps = restoredsteps;
+            _model = restoredsteps;
             _name = restoredsteps.name;
             _route = restoredsteps.route;
         }
 
         public async Task MakeLogin(bool onJsonDelay)
         {
-            foreach (var t in _steps.steps.login)
+            foreach (var t in _model.steps.login)
             {
                 var delay = onJsonDelay ? t.del : _delay;
                 switch (t.@do)
@@ -78,7 +78,7 @@ namespace CefTest
 
         public async Task MakeWifi(bool onJsonDelay)
         {
-            foreach (var t in _steps.steps.wifi)
+            foreach (var t in _model.steps.wifi)
             {
                 var delay = onJsonDelay ? t.del : _delay;
                 switch (t.@do)
@@ -107,7 +107,7 @@ namespace CefTest
 
         public async Task MakeApn(bool onJsonDelay)
         {
-            foreach (var t in _steps.steps.apn)
+            foreach (var t in _model.steps.apn)
             {
                 var delay = onJsonDelay ? t.del : _delay;
                 switch (t.@do)
@@ -135,7 +135,7 @@ namespace CefTest
         }
         public async Task MakeRemote(bool onJsonDelay)
         {
-            foreach (var t in _steps.steps.remote)
+            foreach (var t in _model.steps.remote)
             {
                 var delay = onJsonDelay ? t.del : _delay;
                 switch (t.@do)

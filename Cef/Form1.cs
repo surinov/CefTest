@@ -1,14 +1,16 @@
-﻿using System;
+﻿using CefSharp;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CefSharp;
 
 namespace CefTest
 {
-    public delegate void SetCoordinates(int x,int y);
-    public delegate void AddFileName(string name, string route);
+    public delegate void SetCoordinates(int x, int y);
+    public delegate void AddFileName(string name, string route, string deflogin,string defPass);
+    public delegate void AddInput(string input);
     public partial class Form1 : Form
     {
         public int AddIndex { get; set; } = 0;
@@ -21,7 +23,7 @@ namespace CefTest
             /*0-mr6400v2 1-mr6400v4 2-lte3202 3-mr600*/
             comboBoxModels.SelectedIndex = 0;
             comboBoxUrls.SelectedIndex = 2;
-            comboBoxAdd.SelectedIndex = 3;
+            comboBoxAdd.SelectedIndex = 0;
             comboBoxDo.SelectedIndex = 0;
         }
 
@@ -38,7 +40,7 @@ namespace CefTest
 
         private bool TextboxIsNull()
         {
-            return loginDefBox.Text == string.Empty || loginBox.Text == string.Empty || passwordDefBox.Text == string.Empty || 
+            return loginDefBox.Text == string.Empty || loginBox.Text == string.Empty || passwordDefBox.Text == string.Empty ||
                    passwordBox.Text == string.Empty;
         }
         private string GetModelName()
@@ -46,36 +48,35 @@ namespace CefTest
             try
             {
                 var model = comboBoxModels.SelectedItem.ToString().ToLower().Replace("\n", "");
-                logTextBox.Text = model;
                 return model;
             }
             catch
             {
-                logTextBox.Text = "JSON не найден";
                 return null;
             }
         }
 
         private async void runButton_Click(object sender, EventArgs e)
         {
-            if (!TextboxIsNull()) {
+            if (!TextboxIsNull())
+            {
                 try
                 {
-                    if (GetModelName() != null)
-                    {
-                        _file = GetModelName();
-                        logTextBox.Text = GetModelName();
-                        await MakeStep();
-                    }
+                    if (GetModelName() == null) return;
+                    _file = GetModelName();
+                    logTextBox.Text = GetModelName();
+                    await MakeStep();
                 }
-                catch { // ignored
+                catch
+                {
+                    logTextBox.Text += "Что-то пошло не так";
                 }
             }
         }
 
         public async Task MakeStep()
         {
-            var js = new JsonSteps(webBrowser,loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text,_file);
+            var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text, _file);
             logTextBox.Text = $@"Log: {js.GetName()} {js.GetRoute()}";
             js.SetDelay(500);
             webBrowser.Focus();
@@ -116,7 +117,8 @@ namespace CefTest
                     label3.Text = @"X: " + cX + ", Y: " + cY;
                 }
             }
-            catch {// ignored
+            catch
+            {// ignored
             }
         }
 
@@ -146,18 +148,19 @@ namespace CefTest
                         break;
                 }
             }
-            catch { //ignored
+            catch
+            { //ignored
             }
         }
 
         private async Task ChangeStep(string part)
         {
-            var x = addBoxX.Enabled? int.Parse(addBoxX.Text) : 0;
-            var y = addBoxY.Enabled? int.Parse(addBoxY.Text) : 0;
+            var x = addBoxX.Enabled ? int.Parse(addBoxX.Text) : 0;
+            var y = addBoxY.Enabled ? int.Parse(addBoxY.Text) : 0;
             var @do = comboBoxDo.SelectedItem.ToString();
-            var text = addBoxText.Enabled? addBoxText.Text: null;
+            var text = addBoxText.Enabled ? addBoxText.Text : null;
             var del = int.Parse(addBoxDel.Text);
-            var count = addBoxCount.Enabled? int.Parse(addBoxCount.Text) : 0;
+            var count = addBoxCount.Enabled ? int.Parse(addBoxCount.Text) : 0;
             var jc = new JsonChange(GetModelName());
             if (part == "login")
                 await jc.AddStepLogin(@do, x, y, text, count, AddIndex, del);
@@ -182,22 +185,31 @@ namespace CefTest
                     addBoxCount.Enabled = false;
                     addBoxDel.Enabled = true;
                     addBoxText.Enabled = false;
+                    OpenInputForm.Enabled = false;
+                    addBoxCount.Visible = false;
+                    labelCount.Visible = false;
                     break;
                 case 1:
                     addBoxText.Enabled = true;
+                    OpenInputForm.Enabled = true;
                     addBoxX.Enabled = false;
                     addBoxY.Enabled = false;
                     addBoxDel.Enabled = true;
                     addBoxCount.Enabled = false;
                     addOutForm.Enabled = false;
+                    addBoxCount.Visible = false;
+                    labelCount.Visible = false;
                     break;
                 case 2:
                     addBoxCount.Enabled = true;
+                    addBoxCount.Visible = true;
+                    labelCount.Visible = true;
                     addBoxText.Enabled = false;
                     addBoxX.Enabled = false;
                     addBoxY.Enabled = false;
                     addBoxDel.Enabled = true;
                     addOutForm.Enabled = false;
+                    OpenInputForm.Enabled = false;
                     break;
             }
         }
@@ -229,17 +241,29 @@ namespace CefTest
             var newForm = new Form3(AddNameRoute);
             newForm.Show();
         }
-        private async void AddNameRoute(string name,string route)
+        private async void AddNameRoute(string name, string route, string defLogin, string defPass)
         {
             var jm = new JsonMake("");
-            await jm.MakeJson(name, route);
+            if (defLogin == null && defPass == null)
+                await jm.MakeJson(name, route);
+            else
+            {
+                await jm.MakeJson(name, route, defLogin, defPass);
+            }
             logTextBox.Text += jm.LastChangeResult;
+            RefreshModelsList();
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void OpenInputForm_Click(object sender, EventArgs e)
         {
-            var jc = new JsonChange(GetModelName());
-            await jc.AddStepWifi("input", 0, 0, "hello", 14, 5, 300);
+            var standartInput = new List<string>() { "admin", "password" };
+            var newInput = new List<string>() { "lte123", "77218" };
+            var newForm = new Form4(standartInput, newInput, AddInput);
+            newForm.Show();
+        }
+        private void AddInput(string input)
+        {
+            addBoxText.Text = input;
         }
 
         private void RefreshModelsButton_Click(object sender, EventArgs e)
@@ -261,7 +285,8 @@ namespace CefTest
             {
                 comboBoxModels.SelectedIndex = 0;
             }
-            catch {//ignored
+            catch
+            {//ignored
             }
         }
         private void OpenModelButton_Click(object sender, EventArgs e)
@@ -273,5 +298,15 @@ namespace CefTest
                 pathLabel.Text = _path;
             }
         }
+
+        private void deleteFileButton_Click(object sender, EventArgs e)
+        {
+            var jm = new JsonMake(_path);
+            jm.DeleteJson(GetModelName());
+            logTextBox.Text += jm.LastChangeResult;
+            RefreshModelsList();
+        }
+
+
     }
 }

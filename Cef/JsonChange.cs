@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using Newtonsoft.Json;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace CefTest
 {
@@ -14,7 +14,7 @@ namespace CefTest
         {
             _file = file;
             var js = new JsonSteps(_file);
-            Steps = js._steps;
+            Steps = js._model;
         }
         public async Task AddStepLogin(string Do, int X, int Y, string Text, int Count, int Index, int Delay)
         {
