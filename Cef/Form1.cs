@@ -76,28 +76,30 @@ namespace CefTest
         {
             var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text, _file);
             logTextBox.Text = $@"Log: {js.GetName()} {js.GetRoute()}";
+            var onjsdel = checkBox1.Checked ? true : false;
             js.SetDelay(500);
             webBrowser.Focus();
             if (checkAuth.Checked)
             {
-                await js.MakeLogin(false);
+                await js.MakeLogin(onjsdel);
                 logTextBox.Text += "\n- Login Есть.";
-            }
-
-            if (checkWifi.Checked)
-            {
-                await js.MakeWifi(false);
-                logTextBox.Text += "\n- WiFi Есть.";
             }
 
             if (checkAPN.Checked)
             {
-                await js.MakeApn(false);
+                await js.MakeApn(onjsdel);
                 logTextBox.Text += "\n- APN Есть.";
             }
+
+            if (checkWifi.Checked)
+            {
+                await js.MakeWifi(onjsdel);
+                logTextBox.Text += "\n- WiFi Есть.";
+            }
+
             if (checkRemote.Checked)
             {
-                await js.MakeRemote(false);
+                await js.MakeRemote(onjsdel);
                 logTextBox.Text += "\n- Удаленный Есть.";
             }
         }
@@ -150,6 +152,11 @@ namespace CefTest
 
         private async Task ChangeStep(string part)
         {
+            try
+            {
+                AddIndex = int.Parse(textBoxStep.Text);
+            }
+            catch{}
             var x = addBoxX.Enabled ? int.Parse(addBoxX.Text) : 0;
             var y = addBoxY.Enabled ? int.Parse(addBoxY.Text) : 0;
             var @do = comboBoxDo.SelectedItem.ToString();
@@ -167,6 +174,7 @@ namespace CefTest
                 await jc.AddStepRemote(@do, x, y, text, count, AddIndex, del);
             logTextBox.Text += jc.LastChangeResult;
             AddIndex += 1;
+            textBoxStep.Text = AddIndex.ToString();
         }
 
         private void comboBoxDo_SelectedIndexChanged(object sender, EventArgs e)

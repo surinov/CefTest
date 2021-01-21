@@ -89,10 +89,10 @@ namespace CefTest
                         break;
                     case "input":
                         var text = t.text;
-                        if (text == "_setlogin")
+                        if (text == "_login")
                             text = _setlogin;
 
-                        if (text == "_setpass")
+                        if (text == "_pass")
                             text = _setpassword;
                         await Task.Run(() => MakeInput(text));
                         await Task.Delay(delay);
