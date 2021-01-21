@@ -170,11 +170,18 @@ namespace CefTest
         }
         public void MakeInput(string keys)
         {
-            var a = keys.ToCharArray();
-            foreach (var t in a)
+            if(keys == "{DOWN}" || keys == "{UP}")
             {
-                SendKeys.SendWait($"{t}");
-                SendKeys.Flush();
+                SendKeys.SendWait(keys);
+            }
+            else
+            {
+                var a = keys.ToCharArray();
+                foreach (var t in a)
+                {
+                    SendKeys.SendWait($"{t}");
+                    SendKeys.Flush();
+                }
             }
         }
         public void MakeDelete(int? cout)
