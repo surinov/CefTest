@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CefSharp.WinForms;
 
 namespace CefTest
 {
@@ -18,6 +19,12 @@ namespace CefTest
         private string _file = "mr6400v2.json";
         public Form1()
         {
+            var settings = new CefSettings()
+            {
+                IgnoreCertificateErrors = true
+            };
+            settings.CefCommandLineArgs.Add("ignore-certificate-errors", string.Empty);
+            Cef.Initialize(settings);
             InitializeComponent();
             RefreshModelsList();
             /*0-mr6400v2 1-mr6400v4 2-lte3202 3-mr600*/
