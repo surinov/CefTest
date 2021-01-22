@@ -29,7 +29,7 @@ namespace CefTest
             RefreshModelsList();
             /*0-mr6400v2 1-mr6400v4 2-lte3202 3-mr600*/
             comboBoxModels.SelectedIndex = 0;
-            comboBoxUrls.SelectedIndex = 2;
+            comboBoxUrls.SelectedIndex = 0;
             comboBoxAdd.SelectedIndex = 0;
             comboBoxDo.SelectedIndex = 0;
             groupBox1.Visible = false;
@@ -72,7 +72,7 @@ namespace CefTest
                 {
                     if (GetModelName() == null) return;
                     _file = GetModelName();
-                    logTextBox.Text = GetModelName();
+                    logTextBox.Text += GetModelName();
                     await MakeStep();
                 }
                 catch { logTextBox.Text += @"Что-то пошло не так"; }
@@ -82,7 +82,7 @@ namespace CefTest
         public async Task MakeStep()
         {
             var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text, _file);
-            logTextBox.Text = $@"Log: {js.GetName()} {js.GetRoute()}";
+            logTextBox.Text += $@"Log: {js.GetName()} {js.GetRoute()}";
             var onjsdel = checkBox1.Checked ? true : false;
             js.SetDelay(500);
             webBrowser.Focus();
@@ -121,7 +121,7 @@ namespace CefTest
                     var cX = point.X;
                     var cY = point.Y;
                     await Task.Delay(10);
-                    if(cX < 1025 && cY < 590) label3.Text = @"X: " + cX + ", Y: " + cY;
+                    if(cX < 1025 && cY < 590 && cX > 0 && cY >0) label3.Text = @"X: " + cX + ", Y: " + cY;
                     else label3.Text = "";
                 }
             }
@@ -310,6 +310,15 @@ namespace CefTest
             RefreshModelsList();
         }
 
+        private void comboBoxAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBoxStep.Text = "0";
+            AddIndex = 0;
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            logTextBox.Text = "";
+        }
     }
 }

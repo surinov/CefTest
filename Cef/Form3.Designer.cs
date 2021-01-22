@@ -79,7 +79,7 @@ namespace CefTest
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(117, 222);
+            this.button1.Location = new System.Drawing.Point(117, 127);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(82, 29);
             this.button1.TabIndex = 3;
@@ -94,6 +94,7 @@ namespace CefTest
             this.textBoxRoute.Name = "textBoxRoute";
             this.textBoxRoute.Size = new System.Drawing.Size(100, 20);
             this.textBoxRoute.TabIndex = 4;
+            this.textBoxRoute.Text = "0";
             // 
             // label3
             // 
@@ -133,7 +134,7 @@ namespace CefTest
             // logLabel
             // 
             this.logLabel.AutoSize = true;
-            this.logLabel.Location = new System.Drawing.Point(21, 157);
+            this.logLabel.Location = new System.Drawing.Point(21, 147);
             this.logLabel.Name = "logLabel";
             this.logLabel.Size = new System.Drawing.Size(0, 13);
             this.logLabel.TabIndex = 8;
@@ -141,37 +142,40 @@ namespace CefTest
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(21, 137);
+            this.checkBox1.Location = new System.Drawing.Point(21, 127);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(158, 17);
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "Логин и пароль для входа";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(47, 157);
+            this.textBox1.Location = new System.Drawing.Point(47, 147);
             this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 20);
             this.textBox1.TabIndex = 11;
             this.textBox1.Text = "admin";
+            this.textBox1.Visible = false;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(47, 189);
+            this.textBox2.Location = new System.Drawing.Point(47, 179);
             this.textBox2.Margin = new System.Windows.Forms.Padding(1);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(132, 20);
             this.textBox2.TabIndex = 12;
             this.textBox2.Text = "admin";
+            this.textBox2.Visible = false;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(208, 259);
+            this.ClientSize = new System.Drawing.Size(208, 195);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.checkBox1);

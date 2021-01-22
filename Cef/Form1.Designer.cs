@@ -85,6 +85,7 @@ namespace CefTest
             this.RefreshModelsButton = new System.Windows.Forms.Button();
             this.comboBoxModels = new System.Windows.Forms.ComboBox();
             this.OpenModelButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -100,17 +101,16 @@ namespace CefTest
             this.webBrowser.Location = new System.Drawing.Point(1, 1);
             this.webBrowser.Margin = new System.Windows.Forms.Padding(1);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(1365, 725);
+            this.webBrowser.Size = new System.Drawing.Size(1024, 589);
             this.webBrowser.TabIndex = 0;
             // 
             // runButton
             // 
             this.runButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.runButton.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.runButton.Location = new System.Drawing.Point(40, 146);
-            this.runButton.Margin = new System.Windows.Forms.Padding(4);
+            this.runButton.Location = new System.Drawing.Point(24, 110);
             this.runButton.Name = "runButton";
-            this.runButton.Size = new System.Drawing.Size(114, 49);
+            this.runButton.Size = new System.Drawing.Size(86, 40);
             this.runButton.TabIndex = 1;
             this.runButton.Text = "Запуск";
             this.runButton.UseVisualStyleBackColor = true;
@@ -119,10 +119,9 @@ namespace CefTest
             // passwordDefBox
             // 
             this.passwordDefBox.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passwordDefBox.Location = new System.Drawing.Point(7, 134);
-            this.passwordDefBox.Margin = new System.Windows.Forms.Padding(4);
+            this.passwordDefBox.Location = new System.Drawing.Point(5, 109);
             this.passwordDefBox.Name = "passwordDefBox";
-            this.passwordDefBox.Size = new System.Drawing.Size(132, 30);
+            this.passwordDefBox.Size = new System.Drawing.Size(100, 24);
             this.passwordDefBox.TabIndex = 2;
             this.passwordDefBox.Text = "77290199";
             // 
@@ -130,33 +129,30 @@ namespace CefTest
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(3, 111);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(2, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.Size = new System.Drawing.Size(48, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Пароль";
             // 
             // adressButton
             // 
             this.adressButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.adressButton.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.adressButton.Location = new System.Drawing.Point(24, 62);
-            this.adressButton.Margin = new System.Windows.Forms.Padding(4);
+            this.adressButton.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.adressButton.Location = new System.Drawing.Point(162, 16);
             this.adressButton.Name = "adressButton";
-            this.adressButton.Size = new System.Drawing.Size(100, 32);
+            this.adressButton.Size = new System.Drawing.Size(75, 24);
             this.adressButton.TabIndex = 4;
-            this.adressButton.Text = "Open";
+            this.adressButton.Text = "Открыть";
             this.adressButton.UseVisualStyleBackColor = true;
             this.adressButton.Click += new System.EventHandler(this.adressButton_Click);
             // 
             // makeFileButton
             // 
             this.makeFileButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.makeFileButton.Location = new System.Drawing.Point(237, 7);
-            this.makeFileButton.Margin = new System.Windows.Forms.Padding(4);
+            this.makeFileButton.Location = new System.Drawing.Point(153, 6);
             this.makeFileButton.Name = "makeFileButton";
-            this.makeFileButton.Size = new System.Drawing.Size(79, 44);
+            this.makeFileButton.Size = new System.Drawing.Size(59, 36);
             this.makeFileButton.TabIndex = 8;
             this.makeFileButton.Text = "Создать файл";
             this.makeFileButton.UseVisualStyleBackColor = true;
@@ -166,10 +162,10 @@ namespace CefTest
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(1173, 727);
+            this.label3.Location = new System.Drawing.Point(880, 591);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "coord";
             // 
@@ -177,41 +173,37 @@ namespace CefTest
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(3, 54);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(2, 44);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 20);
+            this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 10;
             this.label4.Text = "Логин";
             // 
             // loginDefBox
             // 
             this.loginDefBox.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginDefBox.Location = new System.Drawing.Point(5, 78);
-            this.loginDefBox.Margin = new System.Windows.Forms.Padding(4);
+            this.loginDefBox.Location = new System.Drawing.Point(4, 63);
             this.loginDefBox.Name = "loginDefBox";
-            this.loginDefBox.Size = new System.Drawing.Size(132, 30);
+            this.loginDefBox.Size = new System.Drawing.Size(100, 24);
             this.loginDefBox.TabIndex = 11;
             this.loginDefBox.Text = "admin";
             // 
             // loginBox
             // 
             this.loginBox.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginBox.Location = new System.Drawing.Point(7, 55);
-            this.loginBox.Margin = new System.Windows.Forms.Padding(4);
+            this.loginBox.Location = new System.Drawing.Point(5, 45);
             this.loginBox.Name = "loginBox";
-            this.loginBox.Size = new System.Drawing.Size(132, 30);
+            this.loginBox.Size = new System.Drawing.Size(100, 24);
             this.loginBox.TabIndex = 15;
-            this.loginBox.Text = "lte05819-4";
+            this.loginBox.Text = "lte12345";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(7, 28);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(5, 23);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 20);
+            this.label5.Size = new System.Drawing.Size(40, 16);
             this.label5.TabIndex = 14;
             this.label5.Text = "Логин";
             // 
@@ -219,22 +211,20 @@ namespace CefTest
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei Light", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(7, 89);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(110, 23);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 20);
+            this.label6.Size = new System.Drawing.Size(48, 16);
             this.label6.TabIndex = 13;
             this.label6.Text = "Пароль";
             // 
             // passwordBox
             // 
             this.passwordBox.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passwordBox.Location = new System.Drawing.Point(7, 116);
-            this.passwordBox.Margin = new System.Windows.Forms.Padding(4);
+            this.passwordBox.Location = new System.Drawing.Point(110, 45);
             this.passwordBox.Name = "passwordBox";
-            this.passwordBox.Size = new System.Drawing.Size(132, 30);
+            this.passwordBox.Size = new System.Drawing.Size(100, 24);
             this.passwordBox.TabIndex = 12;
-            this.passwordBox.Text = "77290199";
+            this.passwordBox.Text = "123456Aa";
             // 
             // groupBox1
             // 
@@ -245,11 +235,11 @@ namespace CefTest
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.loginDefBox);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(1372, 290);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(1033, 236);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(147, 27);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(110, 22);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Войти:";
@@ -262,11 +252,11 @@ namespace CefTest
             this.groupBox2.Controls.Add(this.loginBox);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(1543, 148);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Location = new System.Drawing.Point(1029, 147);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(152, 170);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(242, 78);
             this.groupBox2.TabIndex = 17;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Установить:";
@@ -282,10 +272,10 @@ namespace CefTest
             "https://emulator.tp-link.com/TL-MR6400(EU)_V2_new/userRpm/Index.htm",
             "https://emulator.tp-link.com/mr6400-v4/index.htm",
             "https://192.168.1.1/"});
-            this.comboBoxUrls.Location = new System.Drawing.Point(5, 21);
-            this.comboBoxUrls.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxUrls.Location = new System.Drawing.Point(4, 17);
+            this.comboBoxUrls.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxUrls.Name = "comboBoxUrls";
-            this.comboBoxUrls.Size = new System.Drawing.Size(156, 28);
+            this.comboBoxUrls.Size = new System.Drawing.Size(153, 24);
             this.comboBoxUrls.TabIndex = 18;
             // 
             // checkRemote
@@ -295,10 +285,10 @@ namespace CefTest
             this.checkRemote.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkRemote.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkRemote.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkRemote.Location = new System.Drawing.Point(20, 90);
-            this.checkRemote.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkRemote.Location = new System.Drawing.Point(15, 73);
+            this.checkRemote.Margin = new System.Windows.Forms.Padding(2);
             this.checkRemote.Name = "checkRemote";
-            this.checkRemote.Size = new System.Drawing.Size(128, 27);
+            this.checkRemote.Size = new System.Drawing.Size(100, 23);
             this.checkRemote.TabIndex = 3;
             this.checkRemote.Text = "Удаленный";
             this.checkRemote.UseVisualStyleBackColor = true;
@@ -310,10 +300,10 @@ namespace CefTest
             this.checkAPN.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkAPN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkAPN.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkAPN.Location = new System.Drawing.Point(20, 34);
-            this.checkAPN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkAPN.Location = new System.Drawing.Point(15, 28);
+            this.checkAPN.Margin = new System.Windows.Forms.Padding(2);
             this.checkAPN.Name = "checkAPN";
-            this.checkAPN.Size = new System.Drawing.Size(149, 27);
+            this.checkAPN.Size = new System.Drawing.Size(117, 23);
             this.checkAPN.TabIndex = 2;
             this.checkAPN.Text = "APN профиль";
             this.checkAPN.UseVisualStyleBackColor = true;
@@ -325,10 +315,10 @@ namespace CefTest
             this.checkWifi.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkWifi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkWifi.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkWifi.Location = new System.Drawing.Point(20, 62);
-            this.checkWifi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkWifi.Location = new System.Drawing.Point(15, 50);
+            this.checkWifi.Margin = new System.Windows.Forms.Padding(2);
             this.checkWifi.Name = "checkWifi";
-            this.checkWifi.Size = new System.Drawing.Size(108, 27);
+            this.checkWifi.Size = new System.Drawing.Size(85, 23);
             this.checkWifi.TabIndex = 1;
             this.checkWifi.Text = "Сеть Wifi";
             this.checkWifi.UseVisualStyleBackColor = true;
@@ -340,10 +330,10 @@ namespace CefTest
             this.checkAuth.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkAuth.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkAuth.Font = new System.Drawing.Font("Microsoft YaHei", 9.134328F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkAuth.Location = new System.Drawing.Point(21, 6);
-            this.checkAuth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkAuth.Location = new System.Drawing.Point(16, 5);
+            this.checkAuth.Margin = new System.Windows.Forms.Padding(2);
             this.checkAuth.Name = "checkAuth";
-            this.checkAuth.Size = new System.Drawing.Size(73, 27);
+            this.checkAuth.Size = new System.Drawing.Size(59, 23);
             this.checkAuth.TabIndex = 0;
             this.checkAuth.Text = "Вход";
             this.checkAuth.UseVisualStyleBackColor = true;
@@ -353,11 +343,11 @@ namespace CefTest
             this.groupBox4.Controls.Add(this.comboBoxUrls);
             this.groupBox4.Controls.Add(this.adressButton);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox4.Location = new System.Drawing.Point(1372, 148);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Location = new System.Drawing.Point(1029, 87);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(171, 105);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(242, 56);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Веб адрес";
@@ -368,15 +358,14 @@ namespace CefTest
             this.label7.Location = new System.Drawing.Point(1, 2);
             this.label7.Margin = new System.Windows.Forms.Padding(1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 16);
+            this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 21;
             // 
             // logTextBox
             // 
-            this.logTextBox.Location = new System.Drawing.Point(1379, 650);
-            this.logTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.logTextBox.Location = new System.Drawing.Point(1029, 441);
             this.logTextBox.Name = "logTextBox";
-            this.logTextBox.Size = new System.Drawing.Size(321, 100);
+            this.logTextBox.Size = new System.Drawing.Size(242, 163);
             this.logTextBox.TabIndex = 22;
             this.logTextBox.Text = "";
             // 
@@ -384,11 +373,10 @@ namespace CefTest
             // 
             this.tabControlAdd.Controls.Add(this.tabPage1);
             this.tabControlAdd.Controls.Add(this.tabPage2);
-            this.tabControlAdd.Location = new System.Drawing.Point(1372, 324);
-            this.tabControlAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControlAdd.Location = new System.Drawing.Point(1029, 230);
             this.tabControlAdd.Name = "tabControlAdd";
             this.tabControlAdd.SelectedIndex = 0;
-            this.tabControlAdd.Size = new System.Drawing.Size(335, 319);
+            this.tabControlAdd.Size = new System.Drawing.Size(242, 209);
             this.tabControlAdd.TabIndex = 31;
             // 
             // tabPage1
@@ -400,11 +388,10 @@ namespace CefTest
             this.tabPage1.Controls.Add(this.runButton);
             this.tabPage1.Controls.Add(this.checkWifi);
             this.tabPage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(327, 290);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(234, 183);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Выполнить";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -414,9 +401,11 @@ namespace CefTest
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(20, 202);
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox1.Location = new System.Drawing.Point(12, 155);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(201, 24);
+            this.checkBox1.Size = new System.Drawing.Size(111, 16);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Задержка из файла";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -444,11 +433,10 @@ namespace CefTest
             this.tabPage2.Controls.Add(this.addBoxText);
             this.tabPage2.Controls.Add(this.addBoxDel);
             this.tabPage2.Controls.Add(this.addButton);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(327, 290);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(234, 183);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Редактировать";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -456,28 +444,27 @@ namespace CefTest
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(4, 53);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(3, 43);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(36, 16);
+            this.label13.Size = new System.Drawing.Size(30, 13);
             this.label13.TabIndex = 58;
             this.label13.Text = "Шаг:";
             // 
             // textBoxStep
             // 
-            this.textBoxStep.Location = new System.Drawing.Point(62, 50);
+            this.textBoxStep.Location = new System.Drawing.Point(46, 41);
+            this.textBoxStep.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxStep.Name = "textBoxStep";
-            this.textBoxStep.Size = new System.Drawing.Size(34, 22);
+            this.textBoxStep.Size = new System.Drawing.Size(26, 20);
             this.textBoxStep.TabIndex = 57;
             this.textBoxStep.Text = "0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(3, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 16);
+            this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 56;
             this.label2.Text = "Раздел";
             // 
@@ -485,10 +472,9 @@ namespace CefTest
             // 
             this.OpenInputForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenInputForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OpenInputForm.Location = new System.Drawing.Point(152, 165);
-            this.OpenInputForm.Margin = new System.Windows.Forms.Padding(4);
+            this.OpenInputForm.Location = new System.Drawing.Point(115, 129);
             this.OpenInputForm.Name = "OpenInputForm";
-            this.OpenInputForm.Size = new System.Drawing.Size(27, 25);
+            this.OpenInputForm.Size = new System.Drawing.Size(20, 20);
             this.OpenInputForm.TabIndex = 55;
             this.OpenInputForm.Text = "X";
             this.OpenInputForm.UseVisualStyleBackColor = true;
@@ -497,10 +483,9 @@ namespace CefTest
             // deleteFileButton
             // 
             this.deleteFileButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deleteFileButton.Location = new System.Drawing.Point(237, 59);
-            this.deleteFileButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteFileButton.Location = new System.Drawing.Point(153, 48);
             this.deleteFileButton.Name = "deleteFileButton";
-            this.deleteFileButton.Size = new System.Drawing.Size(79, 44);
+            this.deleteFileButton.Size = new System.Drawing.Size(59, 36);
             this.deleteFileButton.TabIndex = 54;
             this.deleteFileButton.Text = "Удалить файл";
             this.deleteFileButton.UseVisualStyleBackColor = true;
@@ -510,10 +495,9 @@ namespace CefTest
             // 
             this.addOutForm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addOutForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addOutForm.Location = new System.Drawing.Point(152, 124);
-            this.addOutForm.Margin = new System.Windows.Forms.Padding(4);
+            this.addOutForm.Location = new System.Drawing.Point(114, 101);
             this.addOutForm.Name = "addOutForm";
-            this.addOutForm.Size = new System.Drawing.Size(27, 25);
+            this.addOutForm.Size = new System.Drawing.Size(20, 20);
             this.addOutForm.TabIndex = 46;
             this.addOutForm.Text = "X";
             this.addOutForm.UseVisualStyleBackColor = true;
@@ -528,70 +512,68 @@ namespace CefTest
             "click",
             "input",
             "delete"});
-            this.comboBoxDo.Location = new System.Drawing.Point(8, 94);
-            this.comboBoxDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxDo.Location = new System.Drawing.Point(6, 76);
+            this.comboBoxDo.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxDo.Name = "comboBoxDo";
-            this.comboBoxDo.Size = new System.Drawing.Size(63, 24);
+            this.comboBoxDo.Size = new System.Drawing.Size(48, 21);
             this.comboBoxDo.TabIndex = 53;
             this.comboBoxDo.SelectedIndexChanged += new System.EventHandler(this.comboBoxDo_SelectedIndexChanged);
             // 
             // labelCount
             // 
             this.labelCount.AutoSize = true;
-            this.labelCount.Location = new System.Drawing.Point(80, 97);
+            this.labelCount.Location = new System.Drawing.Point(60, 79);
             this.labelCount.Margin = new System.Windows.Forms.Padding(1);
             this.labelCount.Name = "labelCount";
-            this.labelCount.Size = new System.Drawing.Size(52, 16);
+            this.labelCount.Size = new System.Drawing.Size(41, 13);
             this.labelCount.TabIndex = 52;
             this.labelCount.Text = "Кол-во";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 208);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(6, 161);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 16);
+            this.label12.Size = new System.Drawing.Size(61, 13);
             this.label12.TabIndex = 51;
             this.label12.Text = "Задержка:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 169);
+            this.label11.Location = new System.Drawing.Point(7, 132);
             this.label11.Margin = new System.Windows.Forms.Padding(1);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(49, 16);
+            this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 50;
             this.label11.Text = "Текст:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 75);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(3, 61);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 16);
+            this.label10.Size = new System.Drawing.Size(49, 13);
             this.label10.TabIndex = 49;
             this.label10.Text = "Сделать";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(79, 128);
+            this.label9.Location = new System.Drawing.Point(59, 104);
             this.label9.Margin = new System.Windows.Forms.Padding(1);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(17, 16);
+            this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 48;
             this.label9.Text = "Y";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 128);
+            this.label8.Location = new System.Drawing.Point(6, 104);
             this.label8.Margin = new System.Windows.Forms.Padding(1);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(16, 16);
+            this.label8.Size = new System.Drawing.Size(14, 13);
             this.label8.TabIndex = 47;
             this.label8.Text = "X";
             // 
@@ -605,63 +587,62 @@ namespace CefTest
             "Сеть wi-fi",
             "APN профиль",
             "Удаленный"});
-            this.comboBoxAdd.Location = new System.Drawing.Point(7, 26);
-            this.comboBoxAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxAdd.Location = new System.Drawing.Point(5, 21);
+            this.comboBoxAdd.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxAdd.Name = "comboBoxAdd";
-            this.comboBoxAdd.Size = new System.Drawing.Size(157, 24);
+            this.comboBoxAdd.Size = new System.Drawing.Size(119, 21);
             this.comboBoxAdd.TabIndex = 45;
+            this.comboBoxAdd.SelectedIndexChanged += new System.EventHandler(this.comboBoxAdd_SelectedIndexChanged);
             // 
             // addBoxX
             // 
-            this.addBoxX.Location = new System.Drawing.Point(29, 124);
+            this.addBoxX.Location = new System.Drawing.Point(22, 101);
             this.addBoxX.Margin = new System.Windows.Forms.Padding(1);
             this.addBoxX.Name = "addBoxX";
-            this.addBoxX.Size = new System.Drawing.Size(45, 22);
+            this.addBoxX.Size = new System.Drawing.Size(35, 20);
             this.addBoxX.TabIndex = 39;
             this.addBoxX.Text = "500";
             // 
             // addBoxY
             // 
-            this.addBoxY.Location = new System.Drawing.Point(100, 124);
+            this.addBoxY.Location = new System.Drawing.Point(75, 101);
             this.addBoxY.Margin = new System.Windows.Forms.Padding(1);
             this.addBoxY.Name = "addBoxY";
-            this.addBoxY.Size = new System.Drawing.Size(45, 22);
+            this.addBoxY.Size = new System.Drawing.Size(35, 20);
             this.addBoxY.TabIndex = 40;
             this.addBoxY.Text = "500";
             // 
             // addBoxCount
             // 
-            this.addBoxCount.Location = new System.Drawing.Point(137, 94);
+            this.addBoxCount.Location = new System.Drawing.Point(103, 76);
             this.addBoxCount.Margin = new System.Windows.Forms.Padding(1);
             this.addBoxCount.Name = "addBoxCount";
-            this.addBoxCount.Size = new System.Drawing.Size(39, 22);
+            this.addBoxCount.Size = new System.Drawing.Size(30, 20);
             this.addBoxCount.TabIndex = 44;
             this.addBoxCount.Text = "14";
             // 
             // addBoxText
             // 
-            this.addBoxText.Location = new System.Drawing.Point(63, 165);
-            this.addBoxText.Margin = new System.Windows.Forms.Padding(4);
+            this.addBoxText.Location = new System.Drawing.Point(48, 129);
             this.addBoxText.Name = "addBoxText";
-            this.addBoxText.Size = new System.Drawing.Size(83, 22);
+            this.addBoxText.Size = new System.Drawing.Size(63, 20);
             this.addBoxText.TabIndex = 41;
             this.addBoxText.Text = "admin";
             // 
             // addBoxDel
             // 
-            this.addBoxDel.Location = new System.Drawing.Point(93, 204);
-            this.addBoxDel.Margin = new System.Windows.Forms.Padding(4);
+            this.addBoxDel.Location = new System.Drawing.Point(70, 158);
             this.addBoxDel.Name = "addBoxDel";
-            this.addBoxDel.Size = new System.Drawing.Size(52, 22);
+            this.addBoxDel.Size = new System.Drawing.Size(40, 20);
             this.addBoxDel.TabIndex = 43;
             this.addBoxDel.Text = "500";
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(41, 238);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4);
+            this.addButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addButton.Location = new System.Drawing.Point(153, 124);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(100, 28);
+            this.addButton.Size = new System.Drawing.Size(73, 54);
             this.addButton.TabIndex = 42;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
@@ -674,31 +655,30 @@ namespace CefTest
             this.groupBox5.Controls.Add(this.comboBoxModels);
             this.groupBox5.Controls.Add(this.OpenModelButton);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft YaHei", 8.059701F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox5.Location = new System.Drawing.Point(1372, 7);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Location = new System.Drawing.Point(1029, 6);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox5.Size = new System.Drawing.Size(323, 95);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox5.Size = new System.Drawing.Size(242, 77);
             this.groupBox5.TabIndex = 21;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Модель";
+            this.groupBox5.Text = "Сценарии";
             // 
             // pathLabel
             // 
             this.pathLabel.AutoSize = true;
-            this.pathLabel.Location = new System.Drawing.Point(7, 64);
-            this.pathLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.pathLabel.Location = new System.Drawing.Point(5, 52);
             this.pathLabel.Name = "pathLabel";
-            this.pathLabel.Size = new System.Drawing.Size(207, 20);
+            this.pathLabel.Size = new System.Drawing.Size(153, 16);
             this.pathLabel.TabIndex = 33;
             this.pathLabel.Text = "Путь: папка с программой";
             // 
             // RefreshModelsButton
             // 
-            this.RefreshModelsButton.Location = new System.Drawing.Point(156, 20);
-            this.RefreshModelsButton.Margin = new System.Windows.Forms.Padding(4);
+            this.RefreshModelsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RefreshModelsButton.Location = new System.Drawing.Point(117, 16);
             this.RefreshModelsButton.Name = "RefreshModelsButton";
-            this.RefreshModelsButton.Size = new System.Drawing.Size(33, 31);
+            this.RefreshModelsButton.Size = new System.Drawing.Size(25, 25);
             this.RefreshModelsButton.TabIndex = 19;
             this.RefreshModelsButton.Text = "R";
             this.RefreshModelsButton.UseVisualStyleBackColor = true;
@@ -709,30 +689,42 @@ namespace CefTest
             this.comboBoxModels.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxModels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxModels.FormattingEnabled = true;
-            this.comboBoxModels.Location = new System.Drawing.Point(5, 21);
-            this.comboBoxModels.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxModels.Location = new System.Drawing.Point(4, 17);
+            this.comboBoxModels.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxModels.Name = "comboBoxModels";
-            this.comboBoxModels.Size = new System.Drawing.Size(142, 28);
+            this.comboBoxModels.Size = new System.Drawing.Size(108, 24);
             this.comboBoxModels.TabIndex = 18;
             // 
             // OpenModelButton
             // 
             this.OpenModelButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OpenModelButton.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OpenModelButton.Location = new System.Drawing.Point(209, 21);
-            this.OpenModelButton.Margin = new System.Windows.Forms.Padding(4);
+            this.OpenModelButton.Location = new System.Drawing.Point(157, 17);
             this.OpenModelButton.Name = "OpenModelButton";
-            this.OpenModelButton.Size = new System.Drawing.Size(101, 30);
+            this.OpenModelButton.Size = new System.Drawing.Size(76, 24);
             this.OpenModelButton.TabIndex = 4;
             this.OpenModelButton.Text = "Выбрать";
             this.OpenModelButton.UseVisualStyleBackColor = true;
             this.OpenModelButton.Click += new System.EventHandler(this.OpenModelButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(970, 591);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(55, 21);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "clear log";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1716, 761);
+            this.ClientSize = new System.Drawing.Size(1276, 615);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControlAdd);
             this.Controls.Add(this.logTextBox);
@@ -743,8 +735,7 @@ namespace CefTest
             this.Controls.Add(this.label3);
             this.Controls.Add(this.webBrowser);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(1676, 781);
+            this.MinimumSize = new System.Drawing.Size(1261, 642);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Automation tool";
@@ -819,6 +810,7 @@ namespace CefTest
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBoxStep;
+        private System.Windows.Forms.Button button1;
     }
 }
 
