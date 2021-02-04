@@ -24,6 +24,7 @@ namespace CefTest
                 IgnoreCertificateErrors = true
             };
             settings.CefCommandLineArgs.Add("ignore-certificate-errors", string.Empty);
+            Cef.EnableHighDPISupport();
             Cef.Initialize(settings);
             InitializeComponent();
             RefreshModelsList();
