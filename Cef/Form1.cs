@@ -122,7 +122,7 @@ namespace CefTest
                     var cX = point.X;
                     var cY = point.Y;
                     await Task.Delay(10);
-                    if(cX < 1025 && cY < 590 && cX > 0 && cY >0) label3.Text = @"X: " + cX + ", Y: " + cY;
+                    if(cX < webBrowser.Size.Width && cY < webBrowser.Size.Height && cX > 0 && cY >0) label3.Text = @"X: " + cX + ", Y: " + cY;
                     else label3.Text = "";
                 }
             }
