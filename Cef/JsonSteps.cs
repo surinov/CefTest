@@ -114,7 +114,7 @@ namespace CefTest
                 {
                     case "click":
                         await Task.Run(() => MakeClick(t.x, t.y));
-                        await Task.Delay(_delay);
+                        await Task.Delay(delay);
                         break;
                     case "input":
                         var text = t.text;
@@ -142,7 +142,7 @@ namespace CefTest
                 {
                     case "click":
                         await Task.Run(() => MakeClick(t.x, t.y));
-                        await Task.Delay(_delay);
+                        await Task.Delay(delay);
                         break;
                     case "input":
                         var text = t.text;

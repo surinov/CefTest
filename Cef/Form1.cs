@@ -84,7 +84,7 @@ namespace CefTest
         {
             var js = new JsonSteps(webBrowser, loginDefBox.Text, passwordDefBox.Text, loginBox.Text, passwordBox.Text, _file);
             logTextBox.Text += $@"Log: {js.GetName()} {js.GetRoute()}";
-            var onjsdel = checkBox1.Checked ? true : false;
+            var onjsdel = checkBox1.Checked;
             js.SetDelay(500);
             webBrowser.Focus();
             if (checkAuth.Checked)
